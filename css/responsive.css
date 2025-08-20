@@ -1,0 +1,359 @@
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .welcome-card {
+    padding: 4rem;
+  }
+
+  .logo {
+    font-size: 3.5rem;
+  }
+
+  .welcome-title {
+    font-size: 3rem;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 1199px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+  .header {
+    padding: 1.5rem 0;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .logo i {
+    font-size: 2rem;
+  }
+
+  .welcome-card {
+    padding: 2.5rem;
+    margin: 0 1rem;
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .welcome-description {
+    font-size: 1rem;
+  }
+
+  .phase-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .phase-status {
+    text-align: center;
+  }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .logo i {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .main-content {
+    padding: 1rem 0;
+  }
+
+  .welcome-card {
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+  }
+
+  .welcome-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .welcome-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .welcome-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .quiz-phases {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .phase-card {
+    padding: 1.25rem;
+  }
+
+  .phase-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .phase-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .phase-info p {
+    font-size: 0.8rem;
+  }
+
+  .phase-details li {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .start-btn {
+    padding: 0.875rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .instructions {
+    padding: 1.25rem;
+  }
+
+  .instructions h3 {
+    font-size: 1rem;
+  }
+
+  .instructions li {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .header {
+    padding: 0.75rem 0;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .logo i {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .welcome-card {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+
+  .welcome-icon {
+    font-size: 2.5rem;
+  }
+
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+
+  .welcome-description {
+    font-size: 0.9rem;
+  }
+
+  .phase-card {
+    padding: 1rem;
+  }
+
+  .phase-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .phase-info h3 {
+    font-size: 1rem;
+  }
+
+  .phase-info p {
+    font-size: 0.75rem;
+  }
+
+  .status-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .phase-details li {
+    font-size: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .phase-details li i {
+    width: 14px;
+  }
+
+  .start-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .instructions {
+    padding: 1rem;
+  }
+
+  .instructions h3 {
+    font-size: 0.9rem;
+  }
+
+  .instructions li {
+    font-size: 0.75rem;
+    padding-left: 1.25rem;
+  }
+
+  .footer {
+    padding: 1.5rem 0;
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra Small Mobile (up to 375px) */
+@media (max-width: 375px) {
+  .welcome-card {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .welcome-title {
+    font-size: 1.4rem;
+  }
+
+  .welcome-description {
+    font-size: 0.85rem;
+  }
+
+  .phase-card {
+    padding: 0.875rem;
+  }
+
+  .phase-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .start-btn {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .header {
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .main-content {
+    padding: 0.5rem 0;
+  }
+
+  .welcome-card {
+    padding: 1.5rem;
+  }
+
+  .welcome-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .welcome-description {
+    margin-bottom: 1.5rem;
+  }
+
+  .quiz-phases {
+    margin-bottom: 1.5rem;
+  }
+
+  .start-section {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .welcome-card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .phase-card.active {
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.12);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .header,
+  .footer,
+  .start-section,
+  .instructions {
+    display: none;
+  }
+
+  .welcome-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  body {
+    background: white;
+  }
+}

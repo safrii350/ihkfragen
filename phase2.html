@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 2 - Quiz Master</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Quiz Header -->
+        <header class="quiz-header">
+            <div class="header-content">
+                <div class="quiz-info">
+                    <h1 class="quiz-title">
+                        <i class="fas fa-check-square"></i>
+                        Phase 2 - Multiple Choice
+                    </h1>
+                    <p class="quiz-subtitle">IT-Konzepte und erweiterte Themen</p>
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="btn-secondary" id="backToHome">
+                        <i class="fas fa-home"></i>
+                        Zurück
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-info">
+                <span class="question-counter">Frage <span id="currentQuestion">1</span> von <span id="totalQuestions">15</span></span>
+                <span class="timer" id="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timeLeft">45</span>s
+                </span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- Main Quiz Content -->
+        <main class="quiz-content">
+            <div class="quiz-card">
+                <!-- Question Container -->
+                <div class="question-container" id="questionContainer">
+                    <div class="question-header">
+                        <h2 class="question-text" id="questionText">
+                            Wozu dient TOM (Technische und Organisatorische Maßnahmen)?
+                        </h2>
+                    </div>
+                    
+                    <!-- Answer Options -->
+                    <div class="answer-options" id="answerOptions">
+                        <label class="answer-option checkbox-option" data-answer="0">
+                            <input type="checkbox" class="answer-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="option-text">Datenschutz und IT-Sicherheit gewährleisten</span>
+                        </label>
+                        
+                        <label class="answer-option checkbox-option" data-answer="1">
+                            <input type="checkbox" class="answer-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="option-text">Nur technische Systeme schützen</span>
+                        </label>
+                        
+                        <label class="answer-option checkbox-option" data-answer="2">
+                            <input type="checkbox" class="answer-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="option-text">Organisatorische Prozesse optimieren</span>
+                        </label>
+                        
+                        <label class="answer-option checkbox-option" data-answer="3">
+                            <input type="checkbox" class="answer-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="option-text">Compliance-Anforderungen erfüllen</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="submit-section">
+                        <button class="btn-primary pixelify-font" id="submitAnswer" disabled>
+                            <i class="fas fa-check"></i>
+                            Antwort bestätigen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feedback Container (Hidden by default) -->
+                <div class="feedback-container" id="feedbackContainer" style="display: none;">
+                    <div class="feedback-icon" id="feedbackIcon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="feedback-title" id="feedbackTitle">Korrekt!</h3>
+                    <p class="feedback-message" id="feedbackMessage">
+                        Das ist die richtige Antwort. TOM dient dem Datenschutz und der IT-Sicherheit.
+                    </p>
+                    <div class="feedback-details" id="feedbackDetails">
+                        <div class="selected-answers" id="selectedAnswers"></div>
+                        <div class="correct-answers" id="correctAnswers"></div>
+                    </div>
+                    <button class="btn-primary pixelify-font" id="nextQuestion">
+                        <i class="fas fa-arrow-right"></i>
+                        Nächste Frage
+                    </button>
+                </div>
+
+                <!-- Results Container (Hidden by default) -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <div class="results-header">
+                        <h2 class="results-title">Phase 2 abgeschlossen!</h2>
+                        <div class="results-score">
+                            <div class="score-circle">
+                                <span class="score-number" id="finalScore">0</span>
+                                <span class="score-percentage">%</span>
+                            </div>
+                            <p class="score-text">Du hast <span id="correctAnswers">0</span> von <span id="totalAnswered">15</span> Fragen richtig beantwortet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="results-status" id="resultsStatus">
+                        <div class="status-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="status-title">Bestanden!</h3>
+                        <p class="status-message">Glückwunsch! Du hast beide Phasen erfolgreich abgeschlossen.</p>
+                    </div>
+                    
+                    <div class="results-actions">
+                        <button class="btn-primary pixelify-font" id="restartQuiz">
+                            <i class="fas fa-redo"></i>
+                            Quiz wiederholen
+                        </button>
+                        <button class="btn-secondary" id="backToHomeResults">
+                            <i class="fas fa-home"></i>
+                            Zurück zur Startseite
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Audio Controls -->
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle" title="Audio ein/ausschalten">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="quiz-footer">
+            <p>&copy; 2024 Quiz Master - Phase 2</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="data/questions.js"></script>
+    <script src="js/quiz2.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/storage.js"></script>
+</body>
+</html>

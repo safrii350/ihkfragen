@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Fachinformatiker Prüfungsvorbereitung</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <i class="fas fa-brain"></i>
+                    Quiz Master
+                </h1>
+                <p class="subtitle">Fachinformatiker Prüfungsvorbereitung</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="welcome-card">
+                <div class="welcome-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                
+                <h2 class="welcome-title">Willkommen zur Prüfungsvorbereitung</h2>
+                
+                <p class="welcome-description">
+                    Teste dein Wissen für die Zwischenprüfung als Fachinformatiker für Anwendungsentwicklung. 
+                    Das Quiz ist in Phasen aufgebaut und hilft dir dabei, deine Stärken und Schwächen zu erkennen.
+                </p>
+
+                <!-- Quiz Phases -->
+                <div class="quiz-phases">
+                    <div class="phase-card active" data-phase="1">
+                        <div class="phase-header">
+                            <div class="phase-icon">
+                                <i class="fas fa-list-ul"></i>
+                            </div>
+                            <div class="phase-info">
+                                <h3>Phase 1</h3>
+                                <p>Single Choice Fragen</p>
+                            </div>
+                            <div class="phase-status">
+                                <span class="status-badge">Verfügbar</span>
+                            </div>
+                        </div>
+                        <div class="phase-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> 20 Fragen zu IT-Abkürzungen</li>
+                                <li><i class="fas fa-clock"></i> 30 Sekunden pro Frage</li>
+                                <li><i class="fas fa-percentage"></i> 60% zum Bestehen</li>
+                                <li><i class="fas fa-star"></i> 1 Punkt pro korrekte Antwort</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="phase-card disabled" data-phase="2">
+                        <div class="phase-header">
+                            <div class="phase-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="phase-info">
+                                <h3>Phase 2</h3>
+                                <p>Multiple Choice Fragen</p>
+                            </div>
+                            <div class="phase-status">
+                                <span class="status-badge locked">Gesperrt</span>
+                            </div>
+                        </div>
+                        <div class="phase-details">
+                            <ul>
+                                <li><i class="fas fa-lock"></i> Phase 1 muss bestanden werden</li>
+                                <li><i class="fas fa-clock"></i> 30 Sekunden pro Frage</li>
+                                <li><i class="fas fa-percentage"></i> 60% zum Bestehen</li>
+                                <li><i class="fas fa-star"></i> Erweiterte Themen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Button -->
+                <div class="start-section">
+                    <button class="start-btn pixelify-font" id="startPhase1">
+                        <i class="fas fa-play"></i>
+                        Phase 1 Starten
+                    </button>
+                </div>
+
+                <!-- Instructions -->
+                <div class="instructions">
+                    <h3><i class="fas fa-info-circle"></i> Wichtige Hinweise</h3>
+                    <ul>
+                        <li>Jede Frage hat einen Timer von 30 Sekunden</li>
+                        <li>Du benötigst mindestens 60% zum Bestehen</li>
+                        <li>Audio-Feedback bei jeder Antwort</li>
+                        <li>Dein Fortschritt wird lokal gespeichert</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Quiz Master - Entwickelt für die Prüfungsvorbereitung</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

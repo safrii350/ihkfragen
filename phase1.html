@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 - Quiz Master</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Quiz Header -->
+        <header class="quiz-header">
+            <div class="header-content">
+                <div class="quiz-info">
+                    <h1 class="quiz-title">
+                        <i class="fas fa-list-ul"></i>
+                        Phase 1 - Single Choice
+                    </h1>
+                    <p class="quiz-subtitle">IT-Abkürzungen und Grundlagen</p>
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="btn-secondary" id="backToHome">
+                        <i class="fas fa-home"></i>
+                        Zurück
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-info">
+                <span class="question-counter">Frage <span id="currentQuestion">1</span> von <span id="totalQuestions">20</span></span>
+                <span class="timer" id="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timeLeft">30</span>s
+                </span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- Main Quiz Content -->
+        <main class="quiz-content">
+            <div class="quiz-card">
+                <!-- Question Container -->
+                <div class="question-container" id="questionContainer">
+                    <div class="question-header">
+                        <h2 class="question-text" id="questionText">
+                            Wofür steht die Abkürzung TCP?
+                        </h2>
+                    </div>
+                    
+                    <!-- Answer Options -->
+                    <div class="answer-options" id="answerOptions">
+                        <button class="answer-option" data-answer="0">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Transmission Control Protocol</span>
+                        </button>
+                        
+                        <button class="answer-option" data-answer="1">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Transfer Control Protocol</span>
+                        </button>
+                        
+                        <button class="answer-option" data-answer="2">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Transport Control Protocol</span>
+                        </button>
+                        
+                        <button class="answer-option" data-answer="3">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Transmission Connection Protocol</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feedback Container (Hidden by default) -->
+                <div class="feedback-container" id="feedbackContainer" style="display: none;">
+                    <div class="feedback-icon" id="feedbackIcon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="feedback-title" id="feedbackTitle">Korrekt!</h3>
+                    <p class="feedback-message" id="feedbackMessage">
+                        Das ist die richtige Antwort. TCP steht für Transmission Control Protocol.
+                    </p>
+                    <button class="btn-primary pixelify-font" id="nextQuestion">
+                        <i class="fas fa-arrow-right"></i>
+                        Nächste Frage
+                    </button>
+                </div>
+
+                <!-- Results Container (Hidden by default) -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <div class="results-header">
+                        <h2 class="results-title">Quiz abgeschlossen!</h2>
+                        <div class="results-score">
+                            <div class="score-circle">
+                                <span class="score-number" id="finalScore">0</span>
+                                <span class="score-percentage">%</span>
+                            </div>
+                            <p class="score-text">Du hast <span id="correctAnswers">0</span> von <span id="totalAnswered">20</span> Fragen richtig beantwortet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="results-status" id="resultsStatus">
+                        <div class="status-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="status-title">Bestanden!</h3>
+                        <p class="status-message">Glückwunsch! Du hast die Phase 1 erfolgreich abgeschlossen.</p>
+                    </div>
+                    
+                    <div class="results-actions">
+                        <button class="btn-primary pixelify-font" id="restartQuiz">
+                            <i class="fas fa-redo"></i>
+                            Quiz wiederholen
+                        </button>
+                        <button class="btn-secondary" id="backToHomeResults">
+                            <i class="fas fa-home"></i>
+                            Zurück zur Startseite
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Audio Controls -->
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle" title="Audio ein/ausschalten">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="quiz-footer">
+            <p>&copy; 2024 Quiz Master - Phase 1</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="data/questions.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/storage.js"></script>
+</body>
+</html>
