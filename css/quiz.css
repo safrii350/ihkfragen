@@ -185,36 +185,37 @@
   margin: 2rem 0;
 }
 
-/* Multiple Choice Checkbox Styles */
-.checkbox-option {
+/* Radio button styling for single choice questions */
+.radio-option {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
   padding: 1.5rem;
+  margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.8);
   border: 2px solid rgba(52, 152, 219, 0.2);
-  border-radius: 15px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
+  user-select: none;
 }
 
-.checkbox-option:hover {
+.radio-option:hover {
   background: rgba(255, 255, 255, 0.95);
   border-color: rgba(52, 152, 219, 0.4);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
 }
 
-.checkbox-option input[type="checkbox"] {
+.radio-option input[type="radio"] {
   display: none;
+  cursor: pointer;
 }
 
-.checkbox-custom {
+.radio-custom {
   width: 24px;
   height: 24px;
   border: 3px solid rgba(52, 152, 219, 0.3);
-  border-radius: 6px;
+  border-radius: 50%;
   background: white;
   position: relative;
   flex-shrink: 0;
@@ -222,29 +223,53 @@
   transition: all 0.3s ease;
 }
 
-.checkbox-option input[type="checkbox"]:checked + .checkbox-custom {
+.radio-option input[type="radio"]:checked + .radio-custom {
   background: #3498db;
   border-color: #3498db;
 }
 
-.checkbox-option input[type="checkbox"]:checked + .checkbox-custom::after {
-  content: "\f00c";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  color: white;
+.radio-option input[type="radio"]:checked + .radio-custom::after {
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 12px;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
 }
 
-.checkbox-option .option-text {
+.radio-option .option-text {
   flex: 1;
   font-size: 1.1rem;
   color: #2c3e50;
   line-height: 1.5;
   font-weight: 500;
+}
+
+/* Force pointer cursor for all radio option elements */
+.radio-option,
+.radio-option *,
+.radio-option:hover,
+.radio-option:focus,
+.radio-option:active {
+  cursor: pointer !important;
+}
+
+/* Override answer-option cursor for radio options */
+.answer-option.radio-option,
+.answer-option.radio-option *,
+.answer-option.radio-option:hover,
+.answer-option.radio-option:focus,
+.answer-option.radio-option:active {
+  cursor: pointer !important;
+}
+
+/* Ensure radio options are never disabled */
+.answer-option.radio-option:disabled {
+  cursor: pointer !important;
+  opacity: 1;
 }
 
 /* Submit Section */

@@ -26,7 +26,11 @@ class QuizApp {
     phaseCards.forEach((card) => {
       card.addEventListener("click", (e) => {
         const phase = parseInt(card.dataset.phase);
-        if (!card.classList.contains("disabled")) {
+        // Allow click if card is active (not disabled)
+        if (
+          card.classList.contains("active") ||
+          !card.classList.contains("disabled")
+        ) {
           this.startPhase(phase);
         }
       });
@@ -59,17 +63,34 @@ class QuizApp {
       if (phase2Card) {
         phase2Card.classList.remove("disabled");
         phase2Card.classList.add("active");
+        phase2Card.style.cursor = "pointer"; // Ensure pointer cursor
 
         const statusBadge = phase2Card.querySelector(".status-badge");
         if (statusBadge) {
           statusBadge.textContent = "Verfügbar";
           statusBadge.classList.remove("locked");
         }
+      }
+    }
 
-        // Add click event listener for Phase 2
-        phase2Card.addEventListener("click", () => {
-          this.startPhase(2);
-        });
+    // Update Phase 3 status if Phase 1 and Phase 2 are completed
+    if (
+      progress.phase1 &&
+      progress.phase1.completed &&
+      progress.phase2 &&
+      progress.phase2.completed
+    ) {
+      const phase3Card = document.querySelector('[data-phase="3"]');
+      if (phase3Card) {
+        phase3Card.classList.remove("disabled");
+        phase3Card.classList.add("active");
+        phase3Card.style.cursor = "pointer"; // Ensure pointer cursor
+
+        const statusBadge = phase3Card.querySelector(".status-badge");
+        if (statusBadge) {
+          statusBadge.textContent = "Verfügbar";
+          statusBadge.classList.remove("locked");
+        }
       }
     }
   }
@@ -85,6 +106,12 @@ class QuizApp {
     const phase2Card = document.querySelector('[data-phase="2"]');
     if (phase2Card) {
       phase2Card.classList.add("disabled");
+    }
+
+    // Phase 3 is locked by default
+    const phase3Card = document.querySelector('[data-phase="3"]');
+    if (phase3Card) {
+      phase3Card.classList.add("disabled");
     }
   }
 
@@ -133,6 +160,26 @@ class QuizApp {
           this.showPhase2ComingSoon();
         }
         break;
+      case 3:
+        // Check if Phase 1 and Phase 2 are completed before allowing Phase 3
+        const progress3 = localStorage.getItem("quizProgress");
+        if (progress3) {
+          const userProgress3 = JSON.parse(progress3);
+          if (
+            userProgress3.phase1 &&
+            userProgress3.phase1.completed &&
+            userProgress3.phase2 &&
+            userProgress3.phase2.completed
+          ) {
+            // Phase 3 is now implemented - navigate to it
+            window.location.href = "phase3.html";
+          } else {
+            this.showPhase3ComingSoon();
+          }
+        } else {
+          this.showPhase3ComingSoon();
+        }
+        break;
       default:
         console.error("Unbekannte Phase:", phaseNumber);
     }
@@ -168,7 +215,55 @@ class QuizApp {
       `;
     }
 
-    // Create modal for Phase 2 coming soon
+    this.showModal(title, message);
+  }
+
+  showPhase3ComingSoon() {
+    // Check if Phase 1 and Phase 2 are completed
+    const progress = localStorage.getItem("quizProgress");
+    let message = "";
+    let title = "";
+
+    if (progress) {
+      const userProgress = JSON.parse(progress);
+      if (
+        userProgress.phase1 &&
+        userProgress.phase1.completed &&
+        userProgress.phase2 &&
+        userProgress.phase2.completed
+      ) {
+        title = "Phase 3 - In Entwicklung";
+        message = `
+          <p><strong>Glückwunsch! Du hast Phase 1 und Phase 2 erfolgreich abgeschlossen!</strong></p>
+          <p>Phase 3 (WISO - Wirtschafts- und Sozialkunde) wird derzeit entwickelt und wird bald verfügbar sein.</p>
+          <p>Dein Fortschritt wird gespeichert und Phase 3 wird automatisch freigeschaltet, sobald sie verfügbar ist.</p>
+        `;
+      } else if (userProgress.phase1 && userProgress.phase1.completed) {
+        title = "Phase 3 - Gesperrt";
+        message = `
+          <p>Phase 3 ist noch nicht verfügbar.</p>
+          <p>Bitte schließe zuerst Phase 2 erfolgreich ab (mindestens 60%).</p>
+        `;
+      } else {
+        title = "Phase 3 - Gesperrt";
+        message = `
+          <p>Phase 3 ist noch nicht verfügbar.</p>
+          <p>Bitte schließe zuerst Phase 1 und Phase 2 erfolgreich ab (mindestens 60%).</p>
+        `;
+      }
+    } else {
+      title = "Phase 3 - Gesperrt";
+      message = `
+        <p>Phase 3 ist noch nicht verfügbar.</p>
+        <p>Bitte schließe zuerst Phase 1 und Phase 2 erfolgreich ab (mindestens 60%).</p>
+      `;
+    }
+
+    this.showModal(title, message);
+  }
+
+  showModal(title, message) {
+    // Create modal for coming soon
     const modal = document.createElement("div");
     modal.className = "modal-overlay";
     modal.innerHTML = `
