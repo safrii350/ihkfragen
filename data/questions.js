@@ -288,9 +288,9 @@ const phase2Questions = [
     question: "Wozu dient TOM (Technische und Organisatorische Maßnahmen)?",
     options: [
       "Datenschutz und IT-Sicherheit gewährleisten",
-      "Nur technische Systeme schützen",
-      "Organisatorische Prozesse optimieren",
-      "Compliance-Anforderungen erfüllen",
+      "Technische Systeme schützen",
+      "Organisatorische Abläufe verbessern",
+      "Vorgaben zur Compliance umsetzen",
     ],
     correct: [0, 3], // Multiple correct answers
     explanation:
@@ -301,10 +301,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Cloud Computing?",
     options: [
-      "Skalierbarkeit und Flexibilität",
-      "Kosteneinsparungen bei Infrastruktur",
-      "Automatische Backups und Updates",
-      "Nur bessere Performance",
+      "Hohe Skalierbarkeit und flexible Nutzungsmöglichkeiten",
+      "Reduzierung von Infrastrukturkosten",
+      "Automatisierte Datensicherung und Systemaktualisierung",
+      "Verbesserte Leistung ohne weitere Vorteile",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -318,7 +318,7 @@ const phase2Questions = [
       "Clean Code und Wartbarkeit",
       "Dokumentation und Kommentare",
       "Versionierung und Git",
-      "Nur schnelle Entwicklung",
+      "Fokus ausschließlich auf schnelle Umsetzung",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -329,10 +329,10 @@ const phase2Questions = [
   {
     question: "Welche Sicherheitsmaßnahmen sind wichtig?",
     options: [
-      "Regelmäßige Updates und Patches",
-      "Starke Passwörter und 2FA",
-      "Firewall und Antivirus-Software",
-      "Nur physische Sicherheit",
+      "Regelmäßige System-Updates und Sicherheits-Patches",
+      "Verwendung sicherer Passwörter und Zwei-Faktoren-Authentifizierung (2FA) ",
+      "Einsatz von Firewall und Antivirensoftware",
+      "Außschließlich physhische Schutzmaßnahmen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -343,10 +343,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der Datenbankoptimierung?",
     options: [
-      "Indizes für häufige Abfragen",
-      "Normalisierung der Datenstruktur",
-      "Regelmäßige Wartung und Updates",
-      "Nur mehr Speicherplatz",
+      "Einsatz von Indizes für häufig genutzte Abfragen",
+      "Strukturierung der Daten durch Normalisierung",
+      "Regelmäßige Wartung und Aktualisierung der Datenbank",
+      "Erweiterung des Speicherplatzes ohne weitere Optimierung",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -357,10 +357,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Agile Entwicklung?",
     options: [
-      "Flexibilität bei Änderungen",
-      "Bessere Kommunikation im Team",
-      "Schnellere Lieferung von Features",
-      "Nur weniger Dokumentation",
+      "Hohe Flexibilität bei sich ändernden Anforderungen",
+      "Verbesserte Kommunikation und Zusammenarbeit im Team",
+      "Schnellere Bereitstellung von neuen Funktionen",
+      "Weniger Dokumentation als einziges Ziel",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -371,10 +371,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der Netzwerkplanung?",
     options: [
-      "Skalierbarkeit für zukünftiges Wachstum",
-      "Sicherheit und Segmentierung",
-      "Redundanz für Ausfallsicherheit",
-      "Nur niedrige Kosten",
+      "Skalierbarkeit zur Unterstützung zukünftigen Wachstums",
+      "Sicherheitskonzepte und logische Segmentierung des Netzwerks",
+      "Redundante Strukturen zur Erhöhung der Ausfallsicherheit",
+      "Kostenminimierung als alleinies Ziel",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -385,10 +385,10 @@ const phase2Questions = [
   {
     question: "Welche Qualitätsaspekte sind bei Software wichtig?",
     options: [
-      "Funktionalität und Zuverlässigkeit",
-      "Benutzerfreundlichkeit und Performance",
-      "Wartbarkeit und Testbarkeit",
-      "Nur schnelle Ausführung",
+      "Funktionalität und zuverlässige Ausführung",
+      "Benutzerfreundlichkeit und hohe Performance",
+      "Gute Wartbarkeit und umfassende Testbarkeit",
+      "Schnelle Ausführung als einziger Qualitätsfaktor",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -399,10 +399,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der IT-Infrastruktur?",
     options: [
-      "Monitoring und Überwachung",
-      "Backup-Strategien und Disaster Recovery",
-      "Energieeffizienz und Kühlung",
-      "Nur hohe Performance",
+      "Überwachung technischer  Komponenten zur Fehlererkennung",
+      "Strategien zur Datensicherung und Wiederherstellung im Notfall",
+      "Maßnahmen zur Energieoptimierung und Temperaturkontrolle",
+      "Fokus auf maximale Leistung ohne weitere Maßnahmen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -413,10 +413,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Virtualisierung?",
     options: [
-      "Bessere Ressourcennutzung",
-      "Einfachere Wartung und Updates",
-      "Isolation und Sicherheit",
-      "Nur Kosteneinsparungen",
+      "Optimierte Nutzung vorhandener Hardware-Ressourcen",
+      "Vereinfachung von Wartungs- und Aktualisierungsprozessen",
+      "Trennung von Systemen zur Erhöhung der Sicherheit",
+      "Kostensenkung als alleiniger Vorteil",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -427,12 +427,12 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der API-Entwicklung?",
     options: [
-      "Konsistente Schnittstellen",
-      "Umfassende Dokumentation",
-      "Sicherheit und Authentifizierung",
-      "Nur schnelle Antwortzeiten",
+      "Einheitliche Gestaltung der Schnittstellen für Entwicklerzugriffe",
+      "Bereitstellung hilfreicher Informationen zur Nutzung der API",
+      "Schnelle Antwortzeiten als alleiniger Entwicklungsfokus",
+      "Mechanismen zur Zugriffskontrolle und Schutz sensibler Daten",
     ],
-    correct: [0, 1, 2],
+    correct: [0, 1, 3],
     explanation:
       "Konsistente Schnittstellen, Dokumentation und Sicherheit sind wichtig bei APIs.",
     category: "Entwicklung",
@@ -441,10 +441,10 @@ const phase2Questions = [
   {
     question: "Welche Aspekte sind bei der Datenarchivierung wichtig?",
     options: [
-      "Langzeitverfügbarkeit der Daten",
-      "Rechtliche Compliance",
-      "Kosteneffiziente Speicherung",
-      "Nur schneller Zugriff",
+      "Die Daten sollen über einen längeren Zeitraum hinweg verfügbar bleiben",
+      "Es müssen bestimmte gesetzliche Vorgaben berücksichtigt werden",
+      "Die Speicherung sollte möglichst ressourcenschonend erfolgen",
+      "Der Zugriff auf die Daten soll möglichst schnell erfolgen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -455,10 +455,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der Systemadministration?",
     options: [
-      "Regelmäßige Updates und Patches",
-      "Monitoring und Logging",
-      "Dokumentation und Prozesse",
-      "Nur Benutzerverwaltung",
+      "Die regelmäßige Aktualisierung von Softwarekomponenten",
+      "Die Überwachung von Systemzuständen und das Festhalten von Ereignissen",
+      "Die strukturierte Erfassung von Abläufen und technischen Informationen",
+      "Die ausschließliche Verwaltung von Benutzerkon",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -469,10 +469,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Containerisierung?",
     options: [
-      "Konsistente Umgebungen",
-      "Einfache Skalierung",
-      "Isolation zwischen Anwendungen",
-      "Nur bessere Performance",
+      "Einheitliche Umgebung für Entwicklung und Betrieb",
+      "Flexible Möglichkeiten zur Skalierung von Anwendungen",
+      "Trennung einzelner Anwendungen voneinander",
+      "Hauptsächlich bessere Leistung bei allen Anwendungen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -483,10 +483,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der IT-Sicherheit?",
     options: [
-      "Regelmäßige Sicherheitsaudits",
-      "Schulung der Mitarbeiter",
-      "Incident Response Plan",
-      "Nur technische Maßnahmen",
+      "Regelmäßige Überprüfung sicherheitsrelevanter Systeme und Prozesse",
+      "Sensibilisierung und Schulung von Mitarbeitenden im Umgang mit IT-Systemen",
+      "Vorbereitung auf Sicherheitsvorfälle durch definierte Abläufe",
+      "Fokus auf technische Lösungen als alleinige Schutzmaßnahme",
     ],
     correct: [0, 1, 2],
     explanation:
