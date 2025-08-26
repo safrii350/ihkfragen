@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phase 1 - Quiz Master</title>
+    <title>Phase 4 - Quiz Master</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <!-- Google Fonts -->
@@ -26,10 +26,10 @@
             <div class="header-content">
                 <div class="quiz-info">
                     <h1 class="quiz-title">
-                        <i class="fas fa-list-ul"></i>
-                        Phase 1 - Single Choice
+                        <i class="fas fa-calculator"></i>
+                        Phase 4 - Mathematische Umrechnungen
                     </h1>
-                    <p class="quiz-subtitle">IT-Abkürzungen und Grundlagen</p>
+                    <p class="quiz-subtitle">IP, Bit, Zahlensysteme und Netzwerke</p>
                 </div>
                 
                 <div class="quiz-controls">
@@ -62,7 +62,7 @@
                 <div class="question-container" id="questionContainer">
                     <div class="question-header">
                         <h2 class="question-text" id="questionText">
-                            Wofür steht die Abkürzung TCP?
+                            Wie viele Bits sind 64 Bytes?
                         </h2>
                     </div>
                     
@@ -70,22 +70,22 @@
                     <div class="answer-options" id="answerOptions">
                         <button class="answer-option" data-answer="0">
                             <span class="option-letter">A</span>
-                            <span class="option-text">Transmission Control Protocol</span>
+                            <span class="option-text">256 Bits</span>
                         </button>
                         
                         <button class="answer-option" data-answer="1">
                             <span class="option-letter">B</span>
-                            <span class="option-text">Transfer Control Protocol</span>
+                            <span class="option-text">512 Bits</span>
                         </button>
                         
                         <button class="answer-option" data-answer="2">
                             <span class="option-letter">C</span>
-                            <span class="option-text">Transport Control Protocol</span>
+                            <span class="option-text">1024 Bits</span>
                         </button>
                         
                         <button class="answer-option" data-answer="3">
                             <span class="option-letter">D</span>
-                            <span class="option-text">Transmission Connection Protocol</span>
+                            <span class="option-text">4096 Bits</span>
                         </button>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                     </div>
                     <h3 class="feedback-title" id="feedbackTitle">Korrekt!</h3>
                     <p class="feedback-message" id="feedbackMessage">
-                        Das ist die richtige Antwort. TCP steht für Transmission Control Protocol.
+                        Das ist die richtige Antwort. 1 Byte = 8 Bit, daher 64 × 8 = 512 Bit.
                     </p>
                     <button class="btn-primary pixelify-font" id="nextQuestion">
                         <i class="fas fa-arrow-right"></i>
@@ -123,7 +123,7 @@
                             <i class="fas fa-trophy"></i>
                         </div>
                         <h3 class="status-title">Bestanden!</h3>
-                        <p class="status-message">Glückwunsch! Du hast die Phase 1 erfolgreich abgeschlossen.</p>
+                        <p class="status-message">Glückwunsch! Du hast die Phase 4 erfolgreich abgeschlossen.</p>
                     </div>
                     
                     <div class="results-actions">
@@ -149,13 +149,13 @@
 
         <!-- Footer -->
         <footer class="quiz-footer">
-            <p>&copy; 2024 Quiz Master - Phase 1</p>
+            <p>&copy; 2024 Quiz Master - Phase 4</p>
         </footer>
     </div>
 
     <!-- JavaScript -->
     <script src="data/questions.js"></script>
-    <script src="js/quiz.js"></script>
+    <script src="js/quiz4.js"></script>
     <script src="js/audio.js"></script>
     <script src="js/storage.js"></script>
 </body>

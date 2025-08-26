@@ -93,6 +93,29 @@ class QuizApp {
         }
       }
     }
+
+    // Update Phase 4 status if Phase 1, 2 and 3 are completed
+    if (
+      progress.phase1 &&
+      progress.phase1.completed &&
+      progress.phase2 &&
+      progress.phase2.completed &&
+      progress.phase3 &&
+      progress.phase3.completed
+    ) {
+      const phase4Card = document.querySelector('[data-phase="4"]');
+      if (phase4Card) {
+        phase4Card.classList.remove("disabled");
+        phase4Card.classList.add("active");
+        phase4Card.style.cursor = "pointer"; // Ensure pointer cursor
+
+        const statusBadge = phase4Card.querySelector(".status-badge");
+        if (statusBadge) {
+          statusBadge.textContent = "Verfügbar";
+          statusBadge.classList.remove("locked");
+        }
+      }
+    }
   }
 
   updatePhaseStatus() {
@@ -112,6 +135,12 @@ class QuizApp {
     const phase3Card = document.querySelector('[data-phase="3"]');
     if (phase3Card) {
       phase3Card.classList.add("disabled");
+    }
+
+    // Phase 4 is locked by default
+    const phase4Card = document.querySelector('[data-phase="4"]');
+    if (phase4Card) {
+      phase4Card.classList.add("disabled");
     }
   }
 
@@ -178,6 +207,28 @@ class QuizApp {
           }
         } else {
           this.showPhase3ComingSoon();
+        }
+        break;
+      case 4:
+        // Check if Phase 1, 2 and 3 are completed before allowing Phase 4
+        const progress4 = localStorage.getItem("quizProgress");
+        if (progress4) {
+          const userProgress4 = JSON.parse(progress4);
+          if (
+            userProgress4.phase1 &&
+            userProgress4.phase1.completed &&
+            userProgress4.phase2 &&
+            userProgress4.phase2.completed &&
+            userProgress4.phase3 &&
+            userProgress4.phase3.completed
+          ) {
+            // Phase 4 is now implemented - navigate to it
+            window.location.href = "phase4.html";
+          } else {
+            this.showPhase4ComingSoon();
+          }
+        } else {
+          this.showPhase4ComingSoon();
         }
         break;
       default:
@@ -256,6 +307,63 @@ class QuizApp {
       message = `
         <p>Phase 3 ist noch nicht verfügbar.</p>
         <p>Bitte schließe zuerst Phase 1 und Phase 2 erfolgreich ab (mindestens 60%).</p>
+      `;
+    }
+
+    this.showModal(title, message);
+  }
+
+  showPhase4ComingSoon() {
+    // Check if Phase 1, 2 and 3 are completed
+    const progress = localStorage.getItem("quizProgress");
+    let message = "";
+    let title = "";
+
+    if (progress) {
+      const userProgress = JSON.parse(progress);
+      if (
+        userProgress.phase1 &&
+        userProgress.phase1.completed &&
+        userProgress.phase2 &&
+        userProgress.phase2.completed &&
+        userProgress.phase3 &&
+        userProgress.phase3.completed
+      ) {
+        title = "Phase 4 - In Entwicklung";
+        message = `
+          <p><strong>Glückwunsch! Du hast Phase 1, 2 und 3 erfolgreich abgeschlossen!</strong></p>
+          <p>Phase 4 (Mathematische Umrechnungen) wird derzeit entwickelt und wird bald verfügbar sein.</p>
+          <p>Dein Fortschritt wird gespeichert und Phase 4 wird automatisch freigeschaltet, sobald sie verfügbar ist.</p>
+        `;
+      } else if (
+        userProgress.phase1 &&
+        userProgress.phase1.completed &&
+        userProgress.phase2 &&
+        userProgress.phase2.completed
+      ) {
+        title = "Phase 4 - Gesperrt";
+        message = `
+          <p>Phase 4 ist noch nicht verfügbar.</p>
+          <p>Bitte schließe zuerst Phase 3 erfolgreich ab (mindestens 60%).</p>
+        `;
+      } else if (userProgress.phase1 && userProgress.phase1.completed) {
+        title = "Phase 4 - Gesperrt";
+        message = `
+          <p>Phase 4 ist noch nicht verfügbar.</p>
+          <p>Bitte schließe zuerst Phase 2 und Phase 3 erfolgreich ab (mindestens 60%).</p>
+        `;
+      } else {
+        title = "Phase 4 - Gesperrt";
+        message = `
+          <p>Phase 4 ist noch nicht verfügbar.</p>
+          <p>Bitte schließe zuerst Phase 1, 2 und 3 erfolgreich ab (mindestens 60%).</p>
+        `;
+      }
+    } else {
+      title = "Phase 4 - Gesperrt";
+      message = `
+        <p>Phase 4 ist noch nicht verfügbar.</p>
+        <p>Bitte schließe zuerst Phase 1, 2 und 3 erfolgreich ab (mindestens 60%).</p>
       `;
     }
 

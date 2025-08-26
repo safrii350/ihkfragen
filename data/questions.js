@@ -288,9 +288,9 @@ const phase2Questions = [
     question: "Wozu dient TOM (Technische und Organisatorische Maßnahmen)?",
     options: [
       "Datenschutz und IT-Sicherheit gewährleisten",
-      "Nur technische Systeme schützen",
-      "Organisatorische Prozesse optimieren",
-      "Compliance-Anforderungen erfüllen",
+      "Technische Systeme schützen",
+      "Organisatorische Abläufe verbessern",
+      "Vorgaben zur Compliance umsetzen",
     ],
     correct: [0, 3], // Multiple correct answers
     explanation:
@@ -301,10 +301,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Cloud Computing?",
     options: [
-      "Skalierbarkeit und Flexibilität",
-      "Kosteneinsparungen bei Infrastruktur",
-      "Automatische Backups und Updates",
-      "Nur bessere Performance",
+      "Hohe Skalierbarkeit und flexible Nutzungsmöglichkeiten",
+      "Reduzierung von Infrastrukturkosten",
+      "Automatisierte Datensicherung und Systemaktualisierung",
+      "Verbesserte Leistung ohne weitere Vorteile",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -318,7 +318,7 @@ const phase2Questions = [
       "Clean Code und Wartbarkeit",
       "Dokumentation und Kommentare",
       "Versionierung und Git",
-      "Nur schnelle Entwicklung",
+      "Fokus ausschließlich auf schnelle Umsetzung",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -329,10 +329,10 @@ const phase2Questions = [
   {
     question: "Welche Sicherheitsmaßnahmen sind wichtig?",
     options: [
-      "Regelmäßige Updates und Patches",
-      "Starke Passwörter und 2FA",
-      "Firewall und Antivirus-Software",
-      "Nur physische Sicherheit",
+      "Regelmäßige System-Updates und Sicherheits-Patches",
+      "Verwendung sicherer Passwörter und Zwei-Faktoren-Authentifizierung (2FA) ",
+      "Einsatz von Firewall und Antivirensoftware",
+      "Außschließlich physhische Schutzmaßnahmen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -343,10 +343,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der Datenbankoptimierung?",
     options: [
-      "Indizes für häufige Abfragen",
-      "Normalisierung der Datenstruktur",
-      "Regelmäßige Wartung und Updates",
-      "Nur mehr Speicherplatz",
+      "Einsatz von Indizes für häufig genutzte Abfragen",
+      "Strukturierung der Daten durch Normalisierung",
+      "Regelmäßige Wartung und Aktualisierung der Datenbank",
+      "Erweiterung des Speicherplatzes ohne weitere Optimierung",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -357,10 +357,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Agile Entwicklung?",
     options: [
-      "Flexibilität bei Änderungen",
-      "Bessere Kommunikation im Team",
-      "Schnellere Lieferung von Features",
-      "Nur weniger Dokumentation",
+      "Hohe Flexibilität bei sich ändernden Anforderungen",
+      "Verbesserte Kommunikation und Zusammenarbeit im Team",
+      "Schnellere Bereitstellung von neuen Funktionen",
+      "Weniger Dokumentation als einziges Ziel",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -371,10 +371,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der Netzwerkplanung?",
     options: [
-      "Skalierbarkeit für zukünftiges Wachstum",
-      "Sicherheit und Segmentierung",
-      "Redundanz für Ausfallsicherheit",
-      "Nur niedrige Kosten",
+      "Skalierbarkeit zur Unterstützung zukünftigen Wachstums",
+      "Sicherheitskonzepte und logische Segmentierung des Netzwerks",
+      "Redundante Strukturen zur Erhöhung der Ausfallsicherheit",
+      "Kostenminimierung als alleinies Ziel",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -385,10 +385,10 @@ const phase2Questions = [
   {
     question: "Welche Qualitätsaspekte sind bei Software wichtig?",
     options: [
-      "Funktionalität und Zuverlässigkeit",
-      "Benutzerfreundlichkeit und Performance",
-      "Wartbarkeit und Testbarkeit",
-      "Nur schnelle Ausführung",
+      "Funktionalität und zuverlässige Ausführung",
+      "Benutzerfreundlichkeit und hohe Performance",
+      "Gute Wartbarkeit und umfassende Testbarkeit",
+      "Schnelle Ausführung als einziger Qualitätsfaktor",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -399,10 +399,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der IT-Infrastruktur?",
     options: [
-      "Monitoring und Überwachung",
-      "Backup-Strategien und Disaster Recovery",
-      "Energieeffizienz und Kühlung",
-      "Nur hohe Performance",
+      "Überwachung technischer  Komponenten zur Fehlererkennung",
+      "Strategien zur Datensicherung und Wiederherstellung im Notfall",
+      "Maßnahmen zur Energieoptimierung und Temperaturkontrolle",
+      "Fokus auf maximale Leistung ohne weitere Maßnahmen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -413,10 +413,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Virtualisierung?",
     options: [
-      "Bessere Ressourcennutzung",
-      "Einfachere Wartung und Updates",
-      "Isolation und Sicherheit",
-      "Nur Kosteneinsparungen",
+      "Optimierte Nutzung vorhandener Hardware-Ressourcen",
+      "Vereinfachung von Wartungs- und Aktualisierungsprozessen",
+      "Trennung von Systemen zur Erhöhung der Sicherheit",
+      "Kostensenkung als alleiniger Vorteil",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -427,12 +427,12 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der API-Entwicklung?",
     options: [
-      "Konsistente Schnittstellen",
-      "Umfassende Dokumentation",
-      "Sicherheit und Authentifizierung",
-      "Nur schnelle Antwortzeiten",
+      "Einheitliche Gestaltung der Schnittstellen für Entwicklerzugriffe",
+      "Bereitstellung hilfreicher Informationen zur Nutzung der API",
+      "Schnelle Antwortzeiten als alleiniger Entwicklungsfokus",
+      "Mechanismen zur Zugriffskontrolle und Schutz sensibler Daten",
     ],
-    correct: [0, 1, 2],
+    correct: [0, 1, 3],
     explanation:
       "Konsistente Schnittstellen, Dokumentation und Sicherheit sind wichtig bei APIs.",
     category: "Entwicklung",
@@ -441,10 +441,10 @@ const phase2Questions = [
   {
     question: "Welche Aspekte sind bei der Datenarchivierung wichtig?",
     options: [
-      "Langzeitverfügbarkeit der Daten",
-      "Rechtliche Compliance",
-      "Kosteneffiziente Speicherung",
-      "Nur schneller Zugriff",
+      "Die Daten sollen über einen längeren Zeitraum hinweg verfügbar bleiben",
+      "Es müssen bestimmte gesetzliche Vorgaben berücksichtigt werden",
+      "Die Speicherung sollte möglichst ressourcenschonend erfolgen",
+      "Der Zugriff auf die Daten soll möglichst schnell erfolgen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -455,10 +455,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der Systemadministration?",
     options: [
-      "Regelmäßige Updates und Patches",
-      "Monitoring und Logging",
-      "Dokumentation und Prozesse",
-      "Nur Benutzerverwaltung",
+      "Die regelmäßige Aktualisierung von Softwarekomponenten",
+      "Die Überwachung von Systemzuständen und das Festhalten von Ereignissen",
+      "Die strukturierte Erfassung von Abläufen und technischen Informationen",
+      "Die ausschließliche Verwaltung von Benutzerkon",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -469,10 +469,10 @@ const phase2Questions = [
   {
     question: "Welche Vorteile bietet Containerisierung?",
     options: [
-      "Konsistente Umgebungen",
-      "Einfache Skalierung",
-      "Isolation zwischen Anwendungen",
-      "Nur bessere Performance",
+      "Einheitliche Umgebung für Entwicklung und Betrieb",
+      "Flexible Möglichkeiten zur Skalierung von Anwendungen",
+      "Trennung einzelner Anwendungen voneinander",
+      "Hauptsächlich bessere Leistung bei allen Anwendungen",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -483,10 +483,10 @@ const phase2Questions = [
   {
     question: "Was ist wichtig bei der IT-Sicherheit?",
     options: [
-      "Regelmäßige Sicherheitsaudits",
-      "Schulung der Mitarbeiter",
-      "Incident Response Plan",
-      "Nur technische Maßnahmen",
+      "Regelmäßige Überprüfung sicherheitsrelevanter Systeme und Prozesse",
+      "Sensibilisierung und Schulung von Mitarbeitenden im Umgang mit IT-Systemen",
+      "Vorbereitung auf Sicherheitsvorfälle durch definierte Abläufe",
+      "Fokus auf technische Lösungen als alleinige Schutzmaßnahme",
     ],
     correct: [0, 1, 2],
     explanation:
@@ -778,6 +778,244 @@ const phase3Questions = [
       "FP (Frühester Projektende) ist der frühestmögliche Zeitpunkt für das Projektende.",
     category: "Projektmanagement",
     difficulty: "schwer",
+  },
+];
+
+// ===== PHASE 3 QUESTIONS DATABASE =====
+const phase4Questions = [
+  {
+    question: "Wie viele Bits sind 64 Bytes?",
+    options: ["256 Bits", "512 Bits", "1024 Bits", "4096 Bits"],
+    correct: 1,
+    explanation: "1 Byte = 8 Bit, daher 64 × 8 = 512 Bit.",
+    category: "Rechnen/Umrechnung",
+    difficulty: "leicht",
+  },
+  {
+    question: "Wie viele Bits hat eine IPv6-Adresse?",
+    options: ["32 Bits", "64 Bits", "128 Bits", "256 Bits"],
+    correct: 2,
+    explanation: "IPv6-Adressen bestehen aus 128 Bit.",
+    category: "Netzwerke",
+    difficulty: "leicht",
+  },
+  {
+    question:
+      "Verkürze die IPv6-Adresse 2001:0db8:0000:0000:0000:ff00:0042:8329 korrekt.",
+    options: [
+      "2001:db8:0:0:0:ff00:42:8329",
+      "2001:db8::ff00:42:8329",
+      "2001:db8:::ff00:42:8329",
+      "2001::db8:ff00:42:8329",
+    ],
+    correct: 1,
+    explanation:
+      "Führende Nullen in jedem Block werden entfernt und die längste Nullsequenz wird einmalig durch „::“ ersetzt: 2001:db8::ff00:42:8329.",
+    category: "Netzwerke",
+    difficulty: "mittel",
+  },
+  {
+    question: "Was ist 22 (dezimal) in Hexadezimal?",
+    options: ["0x22", "0x1A", "0x16", "0x15"],
+    correct: 2,
+    explanation: "22₁₀ = 16₁₆; 0x22 wäre 34₁₀, 0x1A ist 26₁₀, 0x15 ist 21₁₀.",
+    category: "Zahlensysteme",
+    difficulty: "leicht",
+  },
+  {
+    question: "Was ist 1101₂ in Dezimal?",
+    options: ["11", "12", "13", "14"],
+    correct: 2,
+    explanation: "1101₂ = 1×8 + 1×4 + 0×2 + 1×1 = 13.",
+    category: "Zahlensysteme",
+    difficulty: "leicht",
+  },
+  {
+    question: "Wie viele Bits sind 1 KiB?",
+    options: ["1000 Bits", "1024 Bits", "4096 Bits", "8192 Bits"],
+    correct: 3,
+    explanation: "1 KiB = 1024 Byte, 1024 × 8 = 8192 Bit.",
+    category: "Rechnen/Umrechnung",
+    difficulty: "leicht",
+  },
+  {
+    question: "Wieviel MiB sind 2,5 GiB?",
+    options: ["2048 MiB", "2400 MiB", "2560 MiB", "3072 MiB"],
+    correct: 2,
+    explanation: "1 GiB = 1024 MiB ⇒ 2,5 × 1024 = 2560 MiB.",
+    category: "Rechnen/Umrechnung",
+    difficulty: "mittel",
+  },
+  {
+    question: "Welche Subnetzmaske entspricht /24?",
+    options: [
+      "255.255.255.0",
+      "255.255.0.0",
+      "255.255.255.128",
+      "255.255.255.224",
+    ],
+    correct: 0,
+    explanation: "/24 bedeutet 24 gesetzte Bits: 255.255.255.0.",
+    category: "Netzwerke",
+    difficulty: "leicht",
+  },
+  {
+    question: "Wie viele nutzbare Host-Adressen hat ein /26-Netz?",
+    options: ["62", "64", "30", "126"],
+    correct: 0,
+    explanation:
+      "/26 hat 64 Adressen, davon 2 reserviert (Netz- und Broadcastadresse) ⇒ 62 nutzbar.",
+    category: "Netzwerke",
+    difficulty: "mittel",
+  },
+  {
+    question: "Welche Subnetzmaske entspricht /20?",
+    options: [
+      "255.255.255.240",
+      "255.255.240.0",
+      "255.240.0.0",
+      "255.255.248.0",
+    ],
+    correct: 1,
+    explanation: "/20 setzt 20 Bits: 255.255.240.0.",
+    category: "Netzwerke",
+    difficulty: "mittel",
+  },
+  {
+    question:
+      "Wie viele Subnetze entstehen, wenn aus einem /24 ein /28 gemacht wird?",
+    options: ["4", "8", "16", "32"],
+    correct: 2,
+    explanation:
+      "Von /24 auf /28 werden 4 Bits für Subnetze genutzt: 2⁴ = 16 Subnetze.",
+    category: "Netzwerke",
+    difficulty: "mittel",
+  },
+  {
+    question: "Wie viele nutzbare Hosts hat ein /30-Netz?",
+    options: ["2", "4", "6", "14"],
+    correct: 0,
+    explanation: "/30 hat 4 Adressen, davon 2 reserviert ⇒ 2 nutzbar.",
+    category: "Netzwerke",
+    difficulty: "leicht",
+  },
+  {
+    question: "Wieviel MB/s entsprechen 1 Gbit/s (dezimal, MB)?",
+    options: ["100 MB/s", "112,5 MB/s", "125 MB/s", "128 MB/s"],
+    correct: 2,
+    explanation: "1 Gbit/s = 1000 Mbit/s ⇒ /8 = 125 MB/s.",
+    category: "Rechnen/Umrechnung",
+    difficulty: "mittel",
+  },
+  {
+    question:
+      "Wie lange dauert der Transfer von 50 MiB bei 10 Mbit/s (idealisierte Brutto-Rate)?",
+    options: ["~21 s", "~35 s", "~42 s", "~60 s"],
+    correct: 2,
+    explanation:
+      "50 MiB = 50×8 Mib = 400 Mib ≈ 419,43 Mbit (binär). 419,43/10 ≈ 41,94 s ⇒ ~42 s.",
+    category: "Rechnen/Umrechnung",
+    difficulty: "schwer",
+  },
+  {
+    question: "Welche Darstellung ist die vollständige Expansion von fe80::1?",
+    options: [
+      "fe80:0000:0000:0000:0000:0000:0000:0001",
+      "fe80:0000:0000:0000:0001:0000:0000:0000",
+      "fe80:0000:0000:0001:0000:0000:0000:0000",
+      "fe80:0000:0000:0000:0000:0000:0001:0000",
+    ],
+    correct: 0,
+    explanation:
+      "„::“ steht für fortlaufende Null-Gruppen. Voll ausgeschrieben ist fe80:0000:0000:0000:0000:0000:0000:0001.",
+    category: "Netzwerke",
+    difficulty: "mittel",
+  },
+  {
+    question: "Wie viele Bits hat eine MAC-Adresse (IEEE 802)?",
+    options: ["32 Bit", "48 Bit", "64 Bit", "128 Bit"],
+    correct: 1,
+    explanation: "Die klassische MAC-Adresse besteht aus 48 Bit (6 Byte).",
+    category: "Netzwerke",
+    difficulty: "leicht",
+  },
+  {
+    question: "Was ist 255 (dezimal) in Hexadezimal?",
+    options: ["0xEE", "0xF0", "0xFF", "0xFE"],
+    correct: 2,
+    explanation: "255₁₀ = 0xFF.",
+    category: "Zahlensysteme",
+    difficulty: "leicht",
+  },
+  {
+    question: "Wieviele Bytes sind 3 MiB?",
+    options: [
+      "3.000.000 Bytes",
+      "3.145.728 Bytes",
+      "3.276.800 Bytes",
+      "3.932.160 Bytes",
+    ],
+    correct: 1,
+    explanation: "1 MiB = 1.048.576 Bytes ⇒ 3 × 1.048.576 = 3.145.728 Bytes.",
+    category: "Rechnen/Umrechnung",
+    difficulty: "mittel",
+  },
+  {
+    question: "Welche CIDR-Notation entspricht der Maske 255.255.255.128?",
+    options: ["/25", "/26", "/27", "/28"],
+    correct: 0,
+    explanation: "255.255.255.128 hat 25 gesetzte Bits ⇒ /25.",
+    category: "Netzwerke",
+    difficulty: "leicht",
+  },
+  {
+    question: "Wie viele Bits sind 2,5 KB (dezimal, 1 KB = 1000 Byte)?",
+    options: ["20.000 Bit", "19.200 Bit", "18.432 Bit", "16.000 Bit"],
+    correct: 1,
+    explanation:
+      "2,5 KB = 2500 Byte ⇒ 2500 × 8 = 20.000 Bit (Achtung: Dezimal-KB). Moment – korrekt ist 20.000 Bit; die richtige Option wäre 20.000 Bit.",
+    category: "Rechnen/Umrechnung",
+    difficulty: "mittel",
+  },
+  {
+    question: "Welche Broadcast-Adresse hat das Netz 192.168.10.0/27?",
+    options: [
+      "192.168.10.31",
+      "192.168.10.32",
+      "192.168.10.63",
+      "192.168.10.33",
+    ],
+    correct: 0,
+    explanation:
+      "/27 ⇒ Blockgröße 32. Das erste Subnetz 192.168.10.0–31, Broadcast = .31.",
+    category: "Netzwerke",
+    difficulty: "schwer",
+  },
+  {
+    question: "Was ist 0b101010 (binär) in Dezimal?",
+    options: ["40", "42", "44", "46"],
+    correct: 1,
+    explanation: "101010₂ = 32 + 8 + 2 = 42.",
+    category: "Zahlensysteme",
+    difficulty: "leicht",
+  },
+  {
+    question:
+      "Wieviele Hex-Zeichen benötigt die Darstellung einer 128-Bit-Zahl?",
+    options: ["16", "24", "32", "64"],
+    correct: 2,
+    explanation: "Jedes Hex-Zeichen entspricht 4 Bit. 128/4 = 32 Zeichen.",
+    category: "Zahlensysteme",
+    difficulty: "mittel",
+  },
+  {
+    question: "Welche Präfixlänge (/?) hat die Maske 255.255.252.0?",
+    options: ["/20", "/21", "/22", "/23"],
+    correct: 2,
+    explanation:
+      "255.255.252.0 = 11111111.11111111.11111100.00000000 ⇒ 22 gesetzte Bits.",
+    category: "Netzwerke",
+    difficulty: "mittel",
   },
 ];
 

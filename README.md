@@ -26,6 +26,7 @@ Diese Quiz-Website bietet eine strukturierte Lernumgebung mit zwei Phasen:
 - ✅ Phase 1 (Single Choice) - **Vollständig implementiert**
 - ✅ Phase 2 (Multiple Choice) - **Vollständig implementiert**
 - ✅ Phase 3 (WISO) - **Vollständig implementiert**
+- ✅ Phase 4 (Mathematische Umrechnungen) - **Vollständig implementiert**
 - ✅ Erweiterte Statistiken
 - ✅ Audio-Feedback
 - ✅ Responsive Design
@@ -52,6 +53,7 @@ kwizz/
 ├── phase1.html            # Phase 1 Quiz (Single Choice)
 ├── phase2.html            # Phase 2 Quiz (Multiple Choice)
 ├── phase3.html            # Phase 3 Quiz (WISO)
+├── phase4.html            # Phase 4 Quiz (Mathematische Umrechnungen)
 ├── css/
 │   ├── style.css          # Hauptstyles
 │   ├── quiz.css           # Quiz-spezifische Styles
@@ -61,13 +63,14 @@ kwizz/
 │   ├── quiz.js            # Phase 1 Quiz-Funktionalität
 │   ├── quiz2.js           # Phase 2 Quiz-Funktionalität
 │   ├── quiz3.js           # Phase 3 Quiz-Funktionalität
+│   ├── quiz4.js           # Phase 4 Quiz-Funktionalität
 │   ├── audio.js           # Audio-Feedback
 │   └── storage.js         # LocalStorage Management
 ├── audio/
 │   ├── correct.mp3        # Korrekte Antwort Sound
 │   └── incorrect.mp3      # Falsche Antwort Sound
 ├── data/
-│   └── questions.js       # Quiz-Fragen (alle 3 Phasen)
+│   └── questions.js       # Quiz-Fragen (alle 4 Phasen)
 └── README.md              # Diese Datei
 ```
 
@@ -125,6 +128,14 @@ Dann im Browser: `http://localhost:8000`
 - **Themenbereiche**: Arbeitsrecht, BWL, Datenschutz, Projektmanagement
 - **Projektmanagement-Spezialitäten**: FAZ, FEZ, FP, SAZ, GP
 
+### Phase 4 (Mathematische Umrechnungen) ✅
+
+- **20 Fragen** zu IP, Bit, Zahlensysteme und Netzwerken
+- **30 Sekunden** pro Frage
+- **60%** zum Bestehen erforderlich
+- **Themenbereiche**: Rechnen/Umrechnung, Netzwerke, Zahlensysteme
+- **Spezielle Themen**: IPv6, Subnetting, Binär/Hex/Dezimal-Konvertierung
+
 ## 🔧 Entwicklung
 
 ### To-Do Liste
@@ -162,6 +173,17 @@ Dann im Browser: `http://localhost:8000`
   - [x] Fortschritts-Tracking
   - [x] Ergebnis-Berechnung
 
+#### Phase 5 - Mathematische Umrechnungen ✅
+
+- [x] Phase 4 Interface
+- [x] Mathematische Umrechnungs-Fragen implementiert
+- [x] IP, Bit, Zahlensysteme und Netzwerke
+- [x] Vollständige Navigation zwischen allen Phasen
+  - [x] Timer-Implementierung
+  - [x] Audio-Feedback
+  - [x] Fortschritts-Tracking
+  - [x] Ergebnis-Berechnung
+
 #### Phase 3 - Daten & Content ✅
 
 - [x] Fragen-Datenbank erstellen
@@ -186,9 +208,10 @@ Dieses Projekt ist für Bildungszwecke entwickelt und steht unter der MIT-Lizenz
 - ✅ Phase 1: 100% abgeschlossen
 - ✅ Phase 2: 100% abgeschlossen
 - ✅ Phase 3: 100% abgeschlossen
+- ✅ Phase 4: 100% abgeschlossen
 - ✅ Polish & Testing: 100% abgeschlossen
 
-**🎉 Alle drei Phasen sind vollständig implementiert und funktionsfähig!**
+**🎉 Alle vier Phasen sind vollständig implementiert und funktionsfähig!**
 
 ## 👥 Mitwirkende
 
