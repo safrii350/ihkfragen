@@ -816,9 +816,9 @@ const phase4Questions = [
   },
   {
     question: "Was ist 22 (dezimal) in Hexadezimal?",
-    options: ["0x22", "0x1A", "0x16", "0x15"],
+    options: ["22", "1A", "16", "15"],
     correct: 2,
-    explanation: "22₁₀ = 16₁₆; 0x22 wäre 34₁₀, 0x1A ist 26₁₀, 0x15 ist 21₁₀.",
+    explanation: "22₁₀ = 16₁₆; 22₁₆ wäre 34₁₀, 1A₁₆ ist 26₁₀, 15₁₆ ist 21₁₀.",
     category: "Zahlensysteme",
     difficulty: "leicht",
   },
@@ -941,9 +941,9 @@ const phase4Questions = [
   },
   {
     question: "Was ist 255 (dezimal) in Hexadezimal?",
-    options: ["0xEE", "0xF0", "0xFF", "0xFE"],
+    options: ["EE", "F0", "FF", "FE"],
     correct: 2,
-    explanation: "255₁₀ = 0xFF.",
+    explanation: "255₁₀ = FF₁₆.",
     category: "Zahlensysteme",
     difficulty: "leicht",
   },
@@ -971,9 +971,9 @@ const phase4Questions = [
   {
     question: "Wie viele Bits sind 2,5 KB (dezimal, 1 KB = 1000 Byte)?",
     options: ["20.000 Bit", "19.200 Bit", "18.432 Bit", "16.000 Bit"],
-    correct: 1,
+    correct: 0,
     explanation:
-      "2,5 KB = 2500 Byte ⇒ 2500 × 8 = 20.000 Bit (Achtung: Dezimal-KB). Moment – korrekt ist 20.000 Bit; die richtige Option wäre 20.000 Bit.",
+      "2,5 KB = 2500 Byte ⇒ 2500 × 8 = 20.000 Bit (Achtung: Dezimal-KB).",
     category: "Rechnen/Umrechnung",
     difficulty: "mittel",
   },
@@ -992,7 +992,7 @@ const phase4Questions = [
     difficulty: "schwer",
   },
   {
-    question: "Was ist 0b101010 (binär) in Dezimal?",
+    question: "Was ist 101010₂ (binär) in Dezimal?",
     options: ["40", "42", "44", "46"],
     correct: 1,
     explanation: "101010₂ = 32 + 8 + 2 = 42.",

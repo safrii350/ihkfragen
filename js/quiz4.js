@@ -46,10 +46,10 @@ class Quiz4 {
         },
         {
           question: "Was ist 22 (dezimal) in Hexadezimal?",
-          options: ["0x22", "0x1A", "0x16", "0x15"],
+          options: ["22", "1A", "16", "15"],
           correct: 2,
           explanation:
-            "22 (dezimal) = 16 (hexadezimal). 0x22 wäre 34 (dezimal), 0x1A ist 26 (dezimal), 0x15 ist 21 (dezimal).",
+            "22 (dezimal) = 16 (hexadezimal). 22 (hex) wäre 34 (dezimal), 1A (hex) ist 26 (dezimal), 15 (hex) ist 21 (dezimal).",
           category: "Zahlensysteme",
           difficulty: "leicht",
         },
@@ -175,9 +175,9 @@ class Quiz4 {
         },
         {
           question: "Was ist 255 (dezimal) in Hexadezimal?",
-          options: ["0xEE", "0xF0", "0xFF", "0xFE"],
+          options: ["EE", "F0", "FF", "FE"],
           correct: 2,
-          explanation: "255 (dezimal) = 0xFF.",
+          explanation: "255 (dezimal) = FF (hex).",
           category: "Zahlensysteme",
           difficulty: "leicht",
         },
@@ -227,10 +227,10 @@ class Quiz4 {
           difficulty: "schwer",
         },
         {
-          question: "Was ist 0b101010 (binär) in Dezimal?",
+          question: "Was ist 101010₂ (binär) in Dezimal?",
           options: ["40", "42", "44", "46"],
           correct: 1,
-          explanation: "101010 (binär) = 32 + 8 + 2 = 42.",
+          explanation: "101010₂ (binär) = 32 + 8 + 2 = 42.",
           category: "Zahlensysteme",
           difficulty: "leicht",
         },

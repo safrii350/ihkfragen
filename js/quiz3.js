@@ -68,11 +68,20 @@ class Quiz3 {
       this.restartQuiz();
     });
 
-    // Back to Home Button
-    const backBtn = document.getElementById("backToHomeResults");
-    backBtn.addEventListener("click", () => {
-      window.location.href = "index.html";
-    });
+    // Back to Home Buttons
+    const backToHomeBtn = document.getElementById("backToHome");
+    if (backToHomeBtn) {
+      backToHomeBtn.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    }
+
+    const backToHomeResultsBtn = document.getElementById("backToHomeResults");
+    if (backToHomeResultsBtn) {
+      backToHomeResultsBtn.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    }
 
     // Audio Toggle
     const audioToggle = document.getElementById("audioToggle");
