@@ -453,6 +453,14 @@
   margin-bottom: 1rem;
 }
 
+.feedback-title.correct {
+  color: #27ae60;
+}
+
+.feedback-title.incorrect {
+  color: #e74c3c;
+}
+
 .feedback-message {
   font-size: 1.1rem;
   color: #7f8c8d;

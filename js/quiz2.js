@@ -50,16 +50,21 @@ class Quiz2 {
       this.nextQuestion();
     });
 
-    // Back to home buttons
-    document.getElementById("backToHome").addEventListener("click", () => {
-      this.confirmExit();
-    });
+    // Back to home button
+    const backToHomeBtn = document.getElementById("backToHome");
+    if (backToHomeBtn) {
+      backToHomeBtn.addEventListener("click", () => {
+        this.confirmExit();
+      });
+    }
 
-    document
-      .getElementById("backToHomeResults")
-      .addEventListener("click", () => {
+    // Back to home results button
+    const backToHomeResultsBtn = document.getElementById("backToHomeResults");
+    if (backToHomeResultsBtn) {
+      backToHomeResultsBtn.addEventListener("click", () => {
         window.location.href = "index.html";
       });
+    }
 
     // Restart quiz button
     document.getElementById("restartQuiz").addEventListener("click", () => {
@@ -428,13 +433,7 @@ class Quiz2 {
   }
 
   confirmExit() {
-    if (
-      confirm(
-        "Möchtest du das Quiz wirklich verlassen? Dein Fortschritt geht verloren."
-      )
-    ) {
-      window.location.href = "index.html";
-    }
+    window.location.href = "index.html";
   }
 
   restartQuiz() {

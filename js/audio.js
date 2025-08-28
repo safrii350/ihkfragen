@@ -154,16 +154,33 @@ class AudioManager {
   playTimerWarning() {
     if (this.isMuted || !this.audioContext) return;
 
-    this.playTone(400, 0.1, "square"); // Warning tone
+    // Ensure audio context is resumed
+    if (this.audioContext.state === "suspended") {
+      this.audioContext.resume().then(() => {
+        this.playTone(400, 0.1, "square"); // Warning tone
+      });
+    } else {
+      this.playTone(400, 0.1, "square"); // Warning tone
+    }
   }
 
   playTimerDanger() {
     if (this.isMuted || !this.audioContext) return;
 
-    this.playTone(300, 0.15, "sawtooth"); // Danger tone
-    setTimeout(() => {
-      this.playTone(250, 0.15, "sawtooth"); // Lower danger tone
-    }, 100);
+    // Ensure audio context is resumed
+    if (this.audioContext.state === "suspended") {
+      this.audioContext.resume().then(() => {
+        this.playTone(300, 0.15, "sawtooth"); // Danger tone
+        setTimeout(() => {
+          this.playTone(250, 0.15, "sawtooth"); // Lower danger tone
+        }, 100);
+      });
+    } else {
+      this.playTone(300, 0.15, "sawtooth"); // Danger tone
+      setTimeout(() => {
+        this.playTone(250, 0.15, "sawtooth"); // Lower danger tone
+      }, 100);
+    }
   }
 
   playTestSound() {
@@ -175,9 +192,15 @@ class AudioManager {
 
     // Ensure audio context is running
     if (this.audioContext.state === "suspended") {
-      this.audioContext.resume();
+      this.audioContext.resume().then(() => {
+        this.playToneInternal(frequency, duration, type);
+      });
+    } else {
+      this.playToneInternal(frequency, duration, type);
     }
+  }
 
+  playToneInternal(frequency, duration, type = "sine") {
     try {
       const oscillator = this.audioContext.createOscillator();
       const gainNode = this.audioContext.createGain();
