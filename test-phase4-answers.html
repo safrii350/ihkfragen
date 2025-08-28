@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4 Antworten Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .question-test {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+        }
+        .correct {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .warning {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Phase 4 Antworten Test</h1>
+    
+    <div class="test-section">
+        <h2>📊 Test-Ergebnisse</h2>
+        <div id="testResults"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 Einzelne Fragen-Analyse</h2>
+        <div id="questionAnalysis"></div>
+    </div>
+
+    <script src="data/questions.js"></script>
+    <script>
+        function testPhase4Answers() {
+            const results = {
+                totalQuestions: 0,
+                correctAnswers: 0,
+                errors: [],
+                warnings: [],
+                questions: []
+            };
+
+            // Teste jede Frage
+            phase4Questions.forEach((question, index) => {
+                const questionResult = {
+                    index: index + 1,
+                    question: question.question,
+                    correctIndex: question.correct,
+                    options: question.options,
+                    correctAnswer: question.options[question.correct],
+                    errors: [],
+                    warnings: []
+                };
+
+                results.totalQuestions++;
+
+                // Test 1: Ist correct Index gültig?
+                if (question.correct < 0 || question.correct >= question.options.length) {
+                    questionResult.errors.push(`Ungültiger correct Index: ${question.correct} (sollte 0-${question.options.length - 1} sein)`);
+                    results.errors.push(`Frage ${index + 1}: Ungültiger correct Index`);
+                } else {
+                    questionResult.correctAnswers++;
+                }
+
+                // Test 2: Sind alle Optionen unique?
+                const uniqueOptions = new Set(question.options);
+                if (uniqueOptions.size !== question.options.length) {
+                    questionResult.warnings.push("Doppelte Antwortoptionen gefunden");
+                    results.warnings.push(`Frage ${index + 1}: Doppelte Antwortoptionen`);
+                }
+
+                // Test 3: Ist die korrekte Antwort plausibel?
+                const correctAnswer = question.options[question.correct];
+                if (!correctAnswer || correctAnswer.trim() === "") {
+                    questionResult.errors.push("Korrekte Antwort ist leer oder undefined");
+                    results.errors.push(`Frage ${index + 1}: Leere korrekte Antwort`);
+                }
+
+                results.questions.push(questionResult);
+            });
+
+            return results;
+        }
+
+        function displayResults(results) {
+            const testResultsDiv = document.getElementById('testResults');
+            const questionAnalysisDiv = document.getElementById('questionAnalysis');
+
+            // Zusammenfassung
+            let summary = `
+                <div class="success">
+                    <h3>✅ Test abgeschlossen!</h3>
+                    <p><strong>Gesamt Fragen:</strong> ${results.totalQuestions}</p>
+                    <p><strong>Gültige korrekte Antworten:</strong> ${results.correctAnswers}</p>
+                    <p><strong>Fehler:</strong> ${results.errors.length}</p>
+                    <p><strong>Warnungen:</strong> ${results.warnings.length}</p>
+                </div>
+            `;
+
+            // Fehler anzeigen
+            if (results.errors.length > 0) {
+                summary += `<div class="error"><h4>❌ Fehler gefunden:</h4><ul>`;
+                results.errors.forEach(error => {
+                    summary += `<li>${error}</li>`;
+                });
+                summary += `</ul></div>`;
+            }
+
+            // Warnungen anzeigen
+            if (results.warnings.length > 0) {
+                summary += `<div class="warning"><h4>⚠️ Warnungen:</h4><ul>`;
+                results.warnings.forEach(warning => {
+                    summary += `<li>${warning}</li>`;
+                });
+                summary += `</ul></div>`;
+            }
+
+            testResultsDiv.innerHTML = summary;
+
+            // Einzelne Fragen
+            let analysis = '<h3>📝 Fragen-Details:</h3>';
+            results.questions.forEach((q, index) => {
+                const hasErrors = q.errors.length > 0;
+                const hasWarnings = q.warnings.length > 0;
+                
+                analysis += `
+                    <div class="question-test ${hasErrors ? 'error' : hasWarnings ? 'warning' : 'success'}">
+                        <h4>Frage ${q.index}: ${q.question}</h4>
+                        <p><strong>Korrekte Antwort:</strong> <span class="correct">${q.correctAnswer}</span></p>
+                        <p><strong>Antwortoptionen:</strong></p>
+                        <ol>
+                            ${q.options.map((option, optIndex) => 
+                                `<li ${optIndex === q.correctIndex ? 'class="correct"' : ''}>${option}</li>`
+                            ).join('')}
+                        </ol>
+                        ${hasErrors || hasWarnings ? `
+                            <div>
+                                ${hasErrors ? `<p class="error"><strong>Fehler:</strong> ${q.errors.join(', ')}</p>` : ''}
+                                ${hasWarnings ? `<p class="warning"><strong>Warnung:</strong> ${q.warnings.join(', ')}</p>` : ''}
+                            </div>
+                        ` : '<p class="success">✅ Frage ist korrekt</p>'}
+                    </div>
+                `;
+            });
+
+            questionAnalysisDiv.innerHTML = analysis;
+        }
+
+        // Test ausführen
+        window.onload = function() {
+            console.log('🧪 Starte Phase 4 Antworten Test...');
+            const results = testPhase4Answers();
+            displayResults(results);
+            console.log('✅ Test abgeschlossen:', results);
+        };
+    </script>
+</body>
+</html>

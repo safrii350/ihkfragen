@@ -215,6 +215,9 @@ Dieses Projekt ist für Bildungszwecke entwickelt und steht unter der MIT-Lizenz
 
 **🎉 Alle vier Phasen sind vollständig implementiert und funktionsfähig!**
 
+**Unit Test ausführen**
+Im Browser tests/test-runner.html ausühren
+
 ## 👥 Mitwirkende
 
 Entwickelt für die Prüfungsvorbereitung als Fachinformatiker für Anwendungsentwicklung.
