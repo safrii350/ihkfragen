@@ -2,6 +2,8 @@
 
 Eine interaktive Quiz-Website zur Vorbereitung auf die Zwischenprüfung als Fachinformatiker für Anwendungsentwicklung.
 
+Besuche: https://ihkquiz.pages.dev/ um dein Wissen zu testen!
+
 ## 🎯 Projektbeschreibung
 
 Diese Quiz-Website bietet eine strukturierte Lernumgebung mit zwei Phasen:
