@@ -102,6 +102,12 @@
             float: right;
             transition: transform 0.3s ease;
             color: #3498db;
+            transform: rotate(-90deg);
+        }
+
+        .sidebar a:has(.toggle-icon) + .submenu:not(.collapsed) .toggle-icon,
+        .sidebar a:has(.toggle-icon) + .submenu:not(.collapsed) ~ .toggle-icon {
+            transform: rotate(0deg);
         }
         
         .content-area h1 {
@@ -160,15 +166,23 @@
             border-radius: 0 0 10px 10px;
             border: 2px solid rgba(52, 152, 219, 0.1);
             border-top: none;
-            display: block;
+            display: none;
         }
 
         .content-section.collapsed .section-content {
             display: none;
         }
 
-        .content-section.collapsed .section-toggle .toggle-icon {
+        .content-section:not(.collapsed) .section-content {
+            display: block;
+        }
+
+        .content-section .section-toggle .toggle-icon {
             transform: rotate(-90deg);
+        }
+
+        .content-section:not(.collapsed) .section-toggle .toggle-icon {
+            transform: rotate(0deg);
         }
         
         @media (max-width: 768px) {
@@ -342,6 +356,11 @@
             display: none;
         }
 
+        .slidebar-content .submenu .submenu {
+            margin-left: 1.5rem;
+            border-left: 2px solid rgba(52, 152, 219, 0.15);
+        }
+
         .slidebar-content .submenu a {
             font-size: 0.9rem;
             padding: 0.6rem 1rem;
@@ -351,6 +370,12 @@
             float: right;
             transition: transform 0.3s ease;
             color: #3498db;
+            transform: rotate(-90deg);
+        }
+
+        .slidebar-content a:has(.toggle-icon) + .submenu:not(.collapsed) .toggle-icon,
+        .slidebar-content a:has(.toggle-icon) + .submenu:not(.collapsed) ~ .toggle-icon {
+            transform: rotate(0deg);
         }
 
         .slidebar-overlay {
@@ -845,6 +870,8 @@
                     </section>
                 </div>
             </section>
+        </main>
+            
         </div>
     </main>
 
@@ -1007,6 +1034,11 @@
 
                     // Dropdown-Menü Funktionalität
             document.addEventListener('DOMContentLoaded', function() {
+                // Alle Sidebar-Submenüs standardmäßig als collapsed markieren
+                document.querySelectorAll('.sidebar .submenu').forEach(submenu => {
+                    submenu.classList.add('collapsed');
+                });
+
                 // Alle Links mit Toggle-Icons finden
                 const toggleLinks = document.querySelectorAll('a:has(.toggle-icon)');
                 
@@ -1017,14 +1049,19 @@
                         link.addEventListener('click', function(e) {
                             e.preventDefault();
                             
-                            // Alle anderen offenen Menüs schließen
-                            const allSubmenus = document.querySelectorAll('.submenu');
-                            const allIcons = document.querySelectorAll('.toggle-icon');
+                            // Alle anderen offenen Menüs auf der gleichen Ebene schließen
+                            const parentLi = link.closest('li');
+                            const siblingSubmenus = parentLi.parentElement.querySelectorAll('.submenu');
                             
-                            allSubmenus.forEach((menu, index) => {
+                            siblingSubmenus.forEach(menu => {
                                 if (menu !== submenu) {
                                     menu.style.display = 'none';
-                                    allIcons[index].style.transform = 'rotate(0deg)';
+                                    menu.classList.add('collapsed');
+                                    // Icon des entsprechenden Links zurücksetzen
+                                    const siblingLink = menu.previousElementSibling;
+                                    if (siblingLink && siblingLink.querySelector('.toggle-icon')) {
+                                        siblingLink.querySelector('.toggle-icon').style.transform = 'rotate(-90deg)';
+                                    }
                                 }
                             });
                             
@@ -1032,10 +1069,16 @@
                             const isOpen = submenu.style.display === 'block';
                             submenu.style.display = isOpen ? 'none' : 'block';
                             
+                            if (isOpen) {
+                                submenu.classList.add('collapsed');
+                            } else {
+                                submenu.classList.remove('collapsed');
+                            }
+                            
                             // Icon drehen
                             const icon = link.querySelector('.toggle-icon');
                             if (icon) {
-                                icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                                icon.style.transform = isOpen ? 'rotate(-90deg)' : 'rotate(0deg)';
                             }
                         });
                     }
@@ -1043,6 +1086,11 @@
 
                 // Content Section Toggle Funktionalität
                 const sectionToggles = document.querySelectorAll('.section-toggle');
+                
+                // Alle Content-Bereiche standardmäßig als collapsed markieren
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.add('collapsed');
+                });
                 
                 sectionToggles.forEach(toggle => {
                     toggle.addEventListener('click', function() {
