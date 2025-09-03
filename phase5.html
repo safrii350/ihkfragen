@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 5 - Quiz Master</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/phase5.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Quiz Header -->
+        <header class="quiz-header">
+            <div class="header-content">
+                <div class="quiz-info">
+                    <h1 class="quiz-title">
+                        <i class="fas fa-robot"></i>
+                        Phase 5
+                    </h1>
+                    <p class="quiz-subtitle">KI-gestützte Freitextfragen</p>
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="btn-secondary" id="backToHome">
+                        <i class="fas fa-home"></i>
+                        Zurück
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-info">
+                <span class="question-counter">Frage <span id="currentQuestion">1</span> von <span id="totalQuestions">10</span></span>
+                <span class="timer" id="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timeLeft">180</span>s
+                </span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- Main Quiz Content -->
+        <main class="quiz-content">
+            <div class="quiz-card">
+                <!-- Loading Screen -->
+                <div class="loading-screen" id="loadingScreen">
+                    <div class="loading-content">
+                        <i class="fas fa-robot fa-spin"></i>
+                        <h2>KI-System wird geladen...</h2>
+                        <p>Phase 5 mit KI-gestützten Freitextfragen wird vorbereitet</p>
+                    </div>
+                </div>
+
+                <!-- Quiz Interface -->
+                <div class="quiz-interface" id="quizInterface" style="display: none;">
+                    <!-- Question Container -->
+                    <div class="question-container" id="questionContainer">
+                        <div class="question-header">
+                            <h2 class="question-text" id="questionText">
+                                Lade Frage...
+                            </h2>
+                            <div class="question-meta">
+                                <span class="category" id="questionCategory">Kategorie</span>
+                                <span class="difficulty" id="questionDifficulty">Schwierigkeit</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Answer Input -->
+                        <div class="answer-input-section">
+                            <div class="textarea-container">
+                                <textarea 
+                                    id="answerInput" 
+                                    placeholder="Schreibe hier deine Antwort..."
+                                    rows="8"
+                                    maxlength="1000"
+                                ></textarea>
+                                <div class="input-info">
+                                    <span class="char-counter" id="charCounter">0/1000 Zeichen</span>
+                                    <span class="min-chars" id="minChars">Mindestens 50 Zeichen erforderlich</span>
+                                </div>
+                            </div>
+                            
+                            <button class="submit-btn" id="submitBtn" disabled>
+                                <i class="fas fa-paper-plane"></i>
+                                Antwort einreichen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Container -->
+                <div class="feedback-container" id="feedbackContainer" style="display: none; visibility: visible;">
+                    <div class="feedback-content">
+                        <!-- AI Analysis Header -->
+                        <div class="ai-analysis-header">
+                            <div class="ai-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="ai-title">
+                                <h3>KI-Analyse deiner Antwort</h3>
+                                <p>DeepSeek AI hat deine Antwort bewertet</p>
+                            </div>
+                        </div>
+
+                        <!-- Score Display -->
+                        <div class="score-display">
+                            <div class="score-circle" id="scoreCircle">
+                                <span class="score-value" id="scoreValue">0%</span>
+                            </div>
+                            <div class="score-breakdown">
+                                <div class="score-item">
+                                    <span class="score-label">Korrektheit:</span>
+                                    <span class="score-percentage" id="correctnessScore">0%</span>
+                                </div>
+                                <div class="score-item">
+                                    <span class="score-label">Vollständigkeit:</span>
+                                    <span class="score-percentage" id="completenessScore">0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Feedback -->
+                        <div class="ai-feedback">
+                            <h4>Detailliertes Feedback:</h4>
+                            <div class="feedback-text" id="feedbackText">
+                                Lade KI-Feedback...
+                            </div>
+                        </div>
+
+                        <!-- Next Button -->
+                        <button class="next-btn" id="nextBtn">
+                            <i class="fas fa-arrow-right"></i>
+                            Nächste Frage
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <div class="results-content">
+                        <div class="results-header">
+                            <i class="fas fa-trophy"></i>
+                            <h2>Phase 5 abgeschlossen!</h2>
+                        </div>
+
+                        <div class="results-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Gesamtpunktzahl</span>
+                                <span class="stat-value" id="totalScore">0%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Richtige Antworten</span>
+                                <span class="stat-value" id="correctAnswers">0/10</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Durchschnittliche Bewertung</span>
+                                <span class="stat-value" id="avgScore">0%</span>
+                            </div>
+                        </div>
+
+                        <div class="results-action">
+                            <button class="home-btn" id="backToHomeResults">
+                                <i class="fas fa-home"></i>
+                                Zurück zur Startseite
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/audio.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="data/phase5-questions.js"></script>
+    <script src="js/quiz5.js"></script>
+</body>
+</html>

@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wissensdatenbank - Quiz Master</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Wissen.html spezifische Styles */
+        .wissen-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 2rem;
+            padding: 0 20px;
+        }
+        
+        .sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .content-area {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar h3 {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar a {
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        .sidebar a:hover {
+            background: rgba(52, 152, 219, 0.08);
+            color: #1f5f8b;
+        }
+        
+        .sidebar .submenu {
+            margin-left: 1rem;
+            border-left: 2px solid rgba(52, 152, 219, 0.2);
+            padding-left: 1rem;
+            display: none;
+        }
+        
+        .sidebar .submenu a {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.75rem;
+        }
+        
+        .toggle-icon {
+            float: right;
+            transition: transform 0.3s ease;
+            color: #3498db;
+        }
+        
+        .content-area h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-area h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            color: #3498db;
+        }
+        
+        .content-area p {
+            color: #7f8c8d;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .wissen-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .sidebar {
+                display: none; /* Ausgeblendet, da in Slidebar verfügbar */
+            }
+            
+            .content-area {
+                order: 1;
+                margin-top: 0;
+                padding: 1.5rem;
+            }
+            
+            .sidebar h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .sidebar a {
+                font-size: 0.85rem;
+                padding: 0.6rem 0.75rem;
+            }
+            
+            .sidebar .submenu {
+                margin-left: 0.5rem;
+                padding-left: 0.5rem;
+            }
+            
+            .sidebar .submenu a {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.75rem;
+            }
+            
+            .content-area h1 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .content-area h2 {
+                font-size: 1.5rem;
+                margin: 1.5rem 0 0.8rem 0;
+            }
+            
+            .content-area h3 {
+                font-size: 1.2rem;
+                margin: 1rem 0 0.5rem 0;
+            }
+            
+            .content-area p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .wissen-container {
+                padding: 0 10px;
+                gap: 0.8rem;
+            }
+            
+            .sidebar {
+                padding: 1rem;
+            }
+            
+            .content-area {
+                padding: 1rem;
+            }
+            
+            .sidebar h3 {
+                font-size: 1rem;
+            }
+            
+            .sidebar a {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.6rem;
+            }
+            
+            .sidebar .submenu a {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.6rem;
+            }
+            
+            .content-area h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content-area h2 {
+                font-size: 1.3rem;
+            }
+            
+            .content-area h3 {
+                font-size: 1.1rem;
+            }
+            
+            .content-area p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Mobile Slidebar Styles */
+        .mobile-slidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 350px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-slidebar.open {
+            right: 0;
+        }
+
+
+
+        .slidebar-content {
+            padding: 1.5rem;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .slidebar-content h3 {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+        }
+
+        .slidebar-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slidebar-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .slidebar-content a {
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .slidebar-content a:hover {
+            background: rgba(52, 152, 219, 0.08);
+            color: #1f5f8b;
+        }
+
+        .slidebar-content .submenu {
+            margin-left: 1rem;
+            border-left: 2px solid rgba(52, 152, 219, 0.2);
+            padding-left: 1rem;
+            display: none;
+        }
+
+        .slidebar-content .submenu a {
+            font-size: 0.9rem;
+            padding: 0.6rem 1rem;
+        }
+
+        .slidebar-content .toggle-icon {
+            float: right;
+            transition: transform 0.3s ease;
+            color: #3498db;
+        }
+
+        .slidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .slidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .burger-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            font-family: inherit;
+        }
+
+        .burger-btn:hover {
+            background: rgba(52, 152, 219, 0.08);
+        }
+
+        /* Slidebar Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navbar (full width) -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1 class="logo">
+                    <i class="fas fa-brain"></i>
+                    Quizzify
+                </h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="wissen.html" class="nav-link"><i class="fas fa-book"></i> Wissensdatenbank</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-link"></i> Links</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-wrench"></i> Tools</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="wissen-container">
+            <!-- Linke Sidebar mit Dropdown-Menü -->
+            <aside class="sidebar">
+            <h3><i class="fas fa-list"></i> Inhaltsverzeichnis</h3>
+            <ul>
+                <li>
+                    <a href="#teil1">Abschlussprüfung Teil 1 <i class="fas fa-chevron-down toggle-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#allgemein">Allgemein</a></li>
+                        <li><a href="#vorbereitung">Vorbereitung </a></li>
+                        <li><a href="#zahlensysteme">Zahlensysteme <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#umrechnungen">Umrechnungen</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#wirtschaft">Wirtschaft <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#vertragsarten">Vertragsarten</a></li>
+                                <li><a href="#marktformen">Marktformen</a></li>
+                                <li><a href="#wirtschaftssektoren">Wirtschaftssektoren</a></li>
+                                <li><a href="#amortisation">Amortisationsrechnung</a></li>
+                                <li><a href="#angebotsvergleich">Angebotsvergleich</a></li>
+                                <li><a href="#bezugskalkulation">Bezugskalkulation</a></li>
+                                <li><a href="#ratendarlehen">Das Ratendarlehen</a></li>
+                                <li><a href="#harvard">Harvard-Konzept</a></li>
+                                <li><a href="#kosten-nutzen">Kosten und Nutzen</a></li>
+                                <li><a href="#make-or-buy">Make or Buy</a></li>
+                                <li><a href="#nutzwertanalyse">Nutzwertanalyse</a></li>
+                                <li><a href="#rentabilitaet">Rentabilitätsrechnung</a></li>
+                                <li><a href="#roi">ROI ~ Return on Investment</a></li>
+                                <li><a href="#win-win">Win-Win-Strategie</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#systemintegration">Systemintegration <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#storage">Storage Systeme</a></li>
+                                <li><a href="#netzwerktopologien">Netzwerktopologien</a></li>
+                                <li><a href="#usv">USV - Unterbrechungsfreie Stromversorgung</a></li>
+                                <li><a href="#backuparten">Backuparten</a></li>
+                                <li><a href="#osi">Das OSI Modell</a></li>
+                                <li><a href="#datenbanksystem">Datenbanksystem</a></li>
+                                <li><a href="#dsl">DSL - Digital Subscriber Line</a></li>
+                                <li><a href="#thin-client">Thin Client Arten</a></li>
+                                <li><a href="#vdi">VDI und DaaS</a></li>
+                                <li><a href="#vlan">VLAN - Virtual Local Area Network</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#projektmanagement">Projektmanagement <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#agil-klassisch">Agiles vs klassisches Projektmanagement</a></li>
+                                <li><a href="#xp">Extreme Programming / XP</a></li>
+                                <li><a href="#gantt">Gantt Diagramm</a></li>
+                                <li><a href="#kanban">Kanban</a></li>
+                                <li><a href="#lasten-pflichtenheft">Lastenheft und Pflichtenheft</a></li>
+                                <li><a href="#magisches-dreieck">Magisches Dreieck</a></li>
+                                <li><a href="#meilensteine">Meilensteine im Projektmanagement</a></li>
+                                <li><a href="#netzplan">Netzplan</a></li>
+                                <li><a href="#teamentwicklung">Phasen der Teamentwicklung</a></li>
+                                <li><a href="#projektplan">Projektplan</a></li>
+                                <li><a href="#risikoanalyse">Risikoanalyse</a></li>
+                                <li><a href="#scrum">Scrum</a></li>
+                                <li><a href="#smart">SMART-Ziele</a></li>
+                                <li><a href="#spiralmodell">Spiralmodell</a></li>
+                                <li><a href="#ticket-systeme">Ticket Systeme</a></li>
+                                <li><a href="#v-modell">V-Modell</a></li>
+                                <li><a href="#was-ist-projekt">Was ist ein Projekt?</a></li>
+                                <li><a href="#wasserfallmodell">Wasserfallmodell</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#datenschutz">Datenschutz <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#cyberbedrohungen">Cyberbedrohungen</a></li>
+                                <li><a href="#betroffenenrechte">Betroffenenrechte</a></li>
+                                <li><a href="#bsi-grundschutz">BSI-Grundschutz: Wichtige Begriffe</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- AP2 : FIAE (ertsmal ausgeblendet) -->
+                <!-- <li>
+                    <a href="#teil2-ae">Abschlussprüfung Teil 2 - Anwendungsentwicklung <i class="fas fa-chevron-down toggle-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#planung">Berufsspezifische Aufgaben 1 - Planung eines Softwareprojektes <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#anforderungsanalyse">Anforderungsanalyse</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#umsetzung">Berufsspezifische Aufgaben 2 - Umsetzung eines Softwareprojektes <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#uml-zustand">UML ~ Zustandsdiagramm</a></li>
+                                <li><a href="#uml-aktivitaet">UML ~ Aktivitätsdiagramm</a></li>
+                                <li><a href="#uml-usecase">UML ~ Use-Case-Diagramm</a></li>
+                                <li><a href="#uml-sequenz">UML ~ Sequenzdiagramm</a></li>
+                                <li><a href="#uml-klasse">UML ~ Klassendiagramm</a></li>
+                                <li><a href="#mvc">MVC - Pattern</a></li>
+                                <li><a href="#observer">Observer - Pattern</a></li>
+                                <li><a href="#objektorientierung">Objektorientierung</a></li>
+                                <li><a href="#sql">SQL / MySQL</a></li>
+                                <li><a href="#normalisierung">Normalisierung</a></li>
+                                <li><a href="#er-modell">ER-Modell</a></li>
+                                <li><a href="#softwareergonomie">Softwareergonomie</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#projekt-ae">Projekt Anwendungsentwicklung <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#projektantrag">Projektantrag</a></li>
+                                <li><a href="#projektdokumentation">Projektdokumentation</a></li>
+                                <li><a href="#projektpraesentation">Projektpräsentation</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li> -->
+                <!-- AP2 : Wirtschaft (ertsmal ausgeblendet) -->
+                <!-- <li>
+                    <a href="#teil2-wirtschaft">Abschlussprüfung Teil 2 - Wirtschaft <i class="fas fa-chevron-down toggle-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#epk">EPK - Ereignisgesteuerte Prozesskette</a></li>
+                        <li><a href="#mutterschutz">Mutterschutz</a></li>
+                        <li><a href="#betriebsvereinbarung">Betriebsvereinbarung</a></li>
+                        <li><a href="#kuendigungen">Kündigungen</a></li>
+                        <li><a href="#betriebsrat">Betriebsrat</a></li>
+                        <li><a href="#europass">Europass</a></li>
+                        <li><a href="#rechtsformen">Rechtsformen</a></li>
+                        <li><a href="#wirtschaftssektoren-teil2">Wirtschaftssektoren</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </aside>
+
+        <!-- Rechter Content-Bereich -->
+        <main class="content-area">
+            <h1>Abschlussprüfung Teil 1</h1>
+            
+            <section id="allgemein">
+                <h2>Allgemein</h2>
+                <p>Die Abschlussprüfung Teil 1 ist für alle IT-Berufe gleich.</p>
+            </section>
+
+            <section id="vorbereitung">
+                <h2>Vorbereitung</h2>
+                <p>Mit den GA2 Teilen der alten Prüfungsverordnung und den bisherigen Abschlussprüfung Teil 1 kann sich auf die Prüfung vorbereitet werden.</p>
+            </section>
+
+            <section id="zahlensysteme">
+                <h2>Zahlensysteme</h2>
+                <p>Umrechnungen zwischen verschiedenen Zahlensystemen</p>
+                
+                <section id="umrechnungen">
+                    <h3>Umrechnungen</h3>
+                    <p>Hier werden die verschiedenen Zahlensysteme und deren Umrechnungen behandelt.</p>
+                </section>
+            </section>
+
+            <section id="wirtschaft">
+                <h2>Wirtschaft</h2>
+                <p>Wirtschaftliche Grundlagen und Berechnungen</p>
+                
+                <section id="vertragsarten">
+                    <h3>Vertragsarten</h3>
+                    <p>Verschiedene Arten von Verträgen und deren Merkmale.</p>
+                </section>
+
+                <section id="marktformen">
+                    <h3>Marktformen</h3>
+                    <p>Unterschiedliche Marktstrukturen und deren Eigenschaften.</p>
+                </section>
+
+                <section id="wirtschaftssektoren">
+                    <h3>Wirtschaftssektoren</h3>
+                    <p>Primärer, sekundärer und tertiärer Wirtschaftssektor.</p>
+                </section>
+
+                <section id="amortisation">
+                    <h3>Amortisationsrechnung</h3>
+                    <p>Berechnung der Amortisationszeit von Investitionen.</p>
+                </section>
+
+                <section id="angebotsvergleich">
+                    <h3>Angebotsvergleich</h3>
+                    <p>Methoden zum Vergleich verschiedener Angebote.</p>
+                </section>
+
+                <section id="bezugskalkulation">
+                    <h3>Bezugskalkulation</h3>
+                    <p>Kalkulation der Bezugskosten und -preise.</p>
+                </section>
+
+                <section id="ratendarlehen">
+                    <h3>Das Ratendarlehen</h3>
+                    <p>Besonderheiten und Berechnungen bei Ratendarlehen.</p>
+                </section>
+
+                <section id="harvard">
+                    <h3>Harvard-Konzept</h3>
+                    <p>Verhandlungsstrategie nach dem Harvard-Prinzip.</p>
+                </section>
+
+                <section id="kosten-nutzen">
+                    <h3>Kosten und Nutzen</h3>
+                    <p>Analyse von Kosten-Nutzen-Verhältnissen.</p>
+                </section>
+
+                <section id="make-or-buy">
+                    <h3>Make or Buy</h3>
+                    <p>Entscheidung zwischen Eigenfertigung und Fremdbezug.</p>
+                </section>
+
+                <section id="nutzwertanalyse">
+                    <h3>Nutzwertanalyse</h3>
+                    <p>Bewertungsmethode für komplexe Entscheidungen.</p>
+                </section>
+
+                <section id="rentabilitaet">
+                    <h3>Rentabilitätsrechnung</h3>
+                    <p>Berechnung der Rentabilität von Investitionen.</p>
+                </section>
+
+                <section id="roi">
+                    <h3>ROI ~ Return on Investment</h3>
+                    <p>Kapitalrentabilität und deren Berechnung.</p>
+                </section>
+
+                <section id="win-win">
+                    <h3>Win-Win-Strategie</h3>
+                    <p>Strategien für beidseitig vorteilhafte Lösungen.</p>
+                </section>
+            </section>
+
+            <section id="systemintegration">
+                <h2>Systemintegration</h2>
+                <p>Technische Grundlagen der Systemintegration</p>
+                
+                <section id="storage">
+                    <h3>Storage Systeme</h3>
+                    <p>Verschiedene Speichersysteme und deren Eigenschaften.</p>
+                </section>
+
+                <section id="netzwerktopologien">
+                    <h3>Netzwerktopologien</h3>
+                    <p>Verschiedene Netzwerkstrukturen und deren Vor- und Nachteile.</p>
+                </section>
+
+                <section id="usv">
+                    <h3>USV - Unterbrechungsfreie Stromversorgung</h3>
+                    <p>Unterbrechungsfreie Stromversorgungssysteme und deren Funktionsweise.</p>
+                </section>
+
+                <section id="backuparten">
+                    <h3>Backuparten</h3>
+                    <p>Verschiedene Arten von Backups und deren Strategien.</p>
+                </section>
+
+                <section id="osi">
+                    <h3>Das OSI Modell</h3>
+                    <p>Das 7-Schichten-Modell der Netzwerkkommunikation.</p>
+                </section>
+
+                <section id="datenbanksystem">
+                    <h3>Datenbanksystem</h3>
+                    <p>Grundlagen von Datenbanksystemen und deren Architektur.</p>
+                </section>
+
+                <section id="dsl">
+                    <h3>DSL - Digital Subscriber Line</h3>
+                    <p>Digitale Teilnehmeranschlussleitung und deren Technologien.</p>
+                </section>
+
+                <section id="thin-client">
+                    <h3>Thin Client Arten</h3>
+                    <p>Verschiedene Arten von Thin Clients und deren Einsatzgebiete.</p>
+                </section>
+
+                <section id="vdi">
+                    <h3>VDI und DaaS</h3>
+                    <p>Virtual Desktop Infrastructure und Desktop as a Service.</p>
+                </section>
+
+                <section id="vlan">
+                    <h3>VLAN - Virtual Local Area Network</h3>
+                    <p>Virtuelle lokale Netzwerke und deren Konfiguration.</p>
+                </section>
+            </section>
+
+            <section id="projektmanagement">
+                <h2>Projektmanagement</h2>
+                <p>Methoden und Werkzeuge des Projektmanagements</p>
+                
+                <section id="agil-klassisch">
+                    <h3>Agiles vs klassisches Projektmanagement</h3>
+                    <p>Unterschiede zwischen agilen und klassischen Projektmanagement-Methoden.</p>
+                </section>
+
+                <section id="xp">
+                    <h3>Extreme Programming / XP</h3>
+                    <p>Agile Entwicklungsmethode mit Fokus auf Qualität und Flexibilität.</p>
+                </section>
+
+                <section id="gantt">
+                    <h3>Gantt Diagramm</h3>
+                    <p>Projektplanung mit Gantt-Diagrammen zur Visualisierung von Zeitplänen.</p>
+                </section>
+
+                <section id="kanban">
+                    <h3>Kanban</h3>
+                    <p>Agile Methode zur Visualisierung und Optimierung von Arbeitsabläufen.</p>
+                </section>
+
+                <section id="lasten-pflichtenheft">
+                    <h3>Lastenheft und Pflichtenheft</h3>
+                    <p>Dokumentation von Anforderungen und technischen Spezifikationen.</p>
+                </section>
+
+                <section id="magisches-dreieck">
+                    <h3>Magisches Dreieck</h3>
+                    <p>Projektmanagement-Dreieck aus Zeit, Kosten und Qualität.</p>
+                </section>
+
+                <section id="meilensteine">
+                    <h3>Meilensteine im Projektmanagement</h3>
+                    <p>Wichtige Zwischenziele und deren Bedeutung für den Projekterfolg.</p>
+                </section>
+
+                <section id="netzplan">
+                    <h3>Netzplan</h3>
+                    <p>Netzplantechnik zur Projektplanung und -steuerung.</p>
+                </section>
+
+                <section id="teamentwicklung">
+                    <h3>Phasen der Teamentwicklung</h3>
+                    <p>Entwicklungsphasen von Teams nach Tuckman (Forming, Storming, Norming, Performing).</p>
+                </section>
+
+                <section id="projektplan">
+                    <h3>Projektplan</h3>
+                    <p>Strukturierte Planung von Projekten mit allen relevanten Aspekten.</p>
+                </section>
+
+                <section id="risikoanalyse">
+                    <h3>Risikoanalyse</h3>
+                    <p>Identifikation, Bewertung und Behandlung von Projektrisiken.</p>
+                </section>
+
+                <section id="scrum">
+                    <h3>Scrum</h3>
+                    <p>Agile Projektmanagement-Methode mit iterativen Entwicklungszyklen.</p>
+                </section>
+
+                <section id="smart">
+                    <h3>SMART-Ziele</h3>
+                    <p>Spezifische, messbare, erreichbare, relevante und terminierte Ziele.</p>
+                </section>
+
+                <section id="spiralmodell">
+                    <h3>Spiralmodell</h3>
+                    <p>Entwicklungsmodell mit iterativen Zyklen und Risikobewertung.</p>
+                </section>
+
+                <section id="ticket-systeme">
+                    <h3>Ticket Systeme</h3>
+                    <p>Systeme zur Verwaltung von Aufgaben und Problemen in Projekten.</p>
+                </section>
+
+                <section id="v-modell">
+                    <h3>V-Modell</h3>
+                    <p>Entwicklungsmodell mit parallelen Entwicklungs- und Testphasen.</p>
+                </section>
+
+                <section id="was-ist-projekt">
+                    <h3>Was ist ein Projekt?</h3>
+                    <p>Definition und Charakteristika von Projekten.</p>
+                </section>
+
+                <section id="wasserfallmodell">
+                    <h3>Wasserfallmodell</h3>
+                    <p>Klassisches lineares Entwicklungsmodell mit sequenziellen Phasen.</p>
+                </section>
+            </section>
+
+            <section id="datenschutz">
+                <h2>Datenschutz</h2>
+                <p>Grundlagen des Datenschutzes und der IT-Sicherheit</p>
+                
+                <section id="cyberbedrohungen">
+                    <h3>Cyberbedrohungen</h3>
+                    <p>Verschiedene Arten von Cyberbedrohungen und deren Abwehr.</p>
+                </section>
+
+                <section id="betroffenenrechte">
+                    <h3>Betroffenenrechte</h3>
+                    <p>Rechte von Personen, deren Daten verarbeitet werden.</p>
+                </section>
+
+                <section id="bsi-grundschutz">
+                    <h3>BSI-Grundschutz: Wichtige Begriffe</h3>
+                    <p>Grundschutz-Katalog des BSI und dessen wichtigste Begriffe.</p>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navbar -->
+    <nav class="mobile-navbar" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-nav-link" aria-label="Start"><i class="fas fa-home"></i><span></span></a>
+        <a href="wissen.html" class="mobile-nav-link" aria-label="Wissen"><i class="fas fa-book"></i><span></span></a>
+        <a href="#" class="mobile-nav-link" aria-label="Links"><i class="fas fa-link"></i><span></span></a>        
+        <a href="#" class="mobile-nav-link" aria-label="Tools"><i class="fas fa-wrench"></i><span></span></a>
+        <button class="mobile-nav-link burger-btn" aria-label="Menü öffnen" id="burgerBtn">
+            <i class="fas fa-bars"></i><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Slidebar -->
+    <div class="mobile-slidebar" id="mobileSlidebar">
+        <div class="slidebar-content">
+            <h3><i class="fas fa-list"></i> Inhaltsverzeichnis</h3>
+            <ul>
+                <li>
+                    <a href="#teil1">Abschlussprüfung Teil 1 <i class="fas fa-chevron-down toggle-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#allgemein">Allgemein</a></li>
+                        <li><a href="#vorbereitung">Vorbereitung</a></li>
+                        <li><a href="#zahlensysteme">Zahlensysteme <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#umrechnungen">Umrechnungen</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#wirtschaft">Wirtschaft <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#vertragsarten">Vertragsarten</a></li>
+                                <li><a href="#marktformen">Marktformen</a></li>
+                                <li><a href="#wirtschaftssektoren">Wirtschaftssektoren</a></li>
+                                <li><a href="#amortisation">Amortisationsrechnung</a></li>
+                                <li><a href="#angebotsvergleich">Angebotsvergleich</a></li>
+                                <li><a href="#bezugskalkulation">Bezugskalkulation</a></li>
+                                <li><a href="#ratendarlehen">Das Ratendarlehen</a></li>
+                                <li><a href="#harvard">Harvard-Konzept</a></li>
+                                <li><a href="#kosten-nutzen">Kosten und Nutzen</a></li>
+                                <li><a href="#make-or-buy">Make or Buy</a></li>
+                                <li><a href="#nutzwertanalyse">Nutzwertanalyse</a></li>
+                                <li><a href="#rentabilitaet">Rentabilitätsrechnung</a></li>
+                                <li><a href="#roi">ROI ~ Return on Investment</a></li>
+                                <li><a href="#win-win">Win-Win-Strategie</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#systemintegration">Systemintegration <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#storage">Storage Systeme</a></li>
+                                <li><a href="#netzwerktopologien">Netzwerktopologien</a></li>
+                                <li><a href="#usv">USV - Unterbrechungsfreie Stromversorgung</a></li>
+                                <li><a href="#backuparten">Backuparten</a></li>
+                                <li><a href="#osi">Das OSI Modell</a></li>
+                                <li><a href="#datenbanksystem">Datenbanksystem</a></li>
+                                <li><a href="#dsl">DSL - Digital Subscriber Line</a></li>
+                                <li><a href="#thin-client">Thin Client Arten</a></li>
+                                <li><a href="#vdi">VDI und DaaS</a></li>
+                                <li><a href="#vlan">VLAN - Virtual Local Area Network</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#projektmanagement">Projektmanagement <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#agil-klassisch">Agiles vs klassisches Projektmanagement</a></li>
+                                <li><a href="#xp">Extreme Programming / XP</a></li>
+                                <li><a href="#gantt">Gantt Diagramm</a></li>
+                                <li><a href="#kanban">Kanban</a></li>
+                                <li><a href="#lasten-pflichtenheft">Lastenheft und Pflichtenheft</a></li>
+                                <li><a href="#magisches-dreieck">Magisches Dreieck</a></li>
+                                <li><a href="#meilensteine">Meilensteine im Projektmanagement</a></li>
+                                <li><a href="#netzplan">Netzplan</a></li>
+                                <li><a href="#teamentwicklung">Phasen der Teamentwicklung</a></li>
+                                <li><a href="#projektplan">Projektplan</a></li>
+                                <li><a href="#risikoanalyse">Risikoanalyse</a></li>
+                                <li><a href="#scrum">Scrum</a></li>
+                                <li><a href="#smart">SMART-Ziele</a></li>
+                                <li><a href="#spiralmodell">Spiralmodell</a></li>
+                                <li><a href="#ticket-systeme">Ticket Systeme</a></li>
+                                <li><a href="#v-modell">V-Modell</a></li>
+                                <li><a href="#was-ist-projekt">Was ist ein Projekt?</a></li>
+                                <li><a href="#wasserfallmodell">Wasserfallmodell</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#datenschutz">Datenschutz <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#cyberbedrohungen">Cyberbedrohungen</a></li>
+                                <li><a href="#betroffenenrechte">Betroffenenrechte</a></li>
+                                <li><a href="#bsi-grundschutz">BSI-Grundschutz: Wichtige Begriffe</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- AP2 : FIAE (ertsmal ausgeblendet) -->
+                <!-- <li>
+                    <a href="#teil2-ae">Abschlussprüfung Teil 2 - Anwendungsentwicklung <i class="fas fa-chevron-down toggle-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#planung">Berufsspezifische Aufgaben 1 - Planung eines Softwareprojektes <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#anforderungsanalyse">Anforderungsanalyse</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#umsetzung">Berufsspezifische Aufgaben 2 - Umsetzung eines Softwareprojektes <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#uml-zustand">UML ~ Zustandsdiagramm</a></li>
+                                <li><a href="#uml-aktivitaet">UML ~ Aktivitätsdiagramm</a></li>
+                                <li><a href="#uml-usecase">UML ~ Use-Case-Diagramm</a></li>
+                                <li><a href="#uml-sequenz">UML ~ Sequenzdiagramm</a></li>
+                                <li><a href="#uml-klasse">UML ~ Klassendiagramm</a></li>
+                                <li><a href="#mvc">MVC - Pattern</a></li>
+                                <li><a href="#observer">Observer - Pattern</a></li>
+                                <li><a href="#objektorientierung">Objektorientierung</a></li>
+                                <li><a href="#sql">SQL / MySQL</a></li>
+                                <li><a href="#normalisierung">Normalisierung</a></li>
+                                <li><a href="#er-modell">ER-Modell</a></li>
+                                <li><a href="#softwareergonomie">Softwareergonomie</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#projekt-ae">Projekt Anwendungsentwicklung <i class="fas fa-chevron-down toggle-icon"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#projektantrag">Projektantrag</a></li>
+                                <li><a href="#projektdokumentation">Projektdokumentation</a></li>
+                                <li><a href="#projektpraesentation">Projektpräsentation</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li> -->
+                <!-- AP2 : Wirtschaft (ertsmal ausgeblendet) -->
+                <!-- <li>
+                    <a href="#teil2-wirtschaft">Abschlussprüfung Teil 2 - Wirtschaft <i class="fas fa-chevron-down toggle-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#epk">EPK - Ereignisgesteuerte Prozesskette</a></li>
+                        <li><a href="#mutterschutz">Mutterschutz</a></li>
+                        <li><a href="#betriebsvereinbarung">Betriebsvereinbarung</a></li>
+                        <li><a href="#kuendigungen">Kündigungen</a></li>
+                        <li><a href="#betriebsrat">Betriebsrat</a></li>
+                        <li><a href="#europass">Europass</a></li>
+                        <li><a href="#rechtsformen">Rechtsformen</a></li>
+                        <li><a href="#wirtschaftssektoren-teil2">Wirtschaftssektoren</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Overlay für Slidebar -->
+    <div class="slidebar-overlay" id="slidebarOverlay"></div>
+
+    <script>
+        // Smooth-Scroll für interne Links
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a[href^="#"]');
+            if (!target) return;
+            const id = target.getAttribute('href');
+            const section = document.querySelector(id);
+            if (section) {
+                e.preventDefault();
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+
+        // Dropdown-Menü Funktionalität
+        document.addEventListener('DOMContentLoaded', function() {
+            // Alle Links mit Toggle-Icons finden
+            const toggleLinks = document.querySelectorAll('a:has(.toggle-icon)');
+            
+            toggleLinks.forEach(link => {
+                const submenu = link.nextElementSibling;
+                if (submenu && submenu.classList.contains('submenu')) {
+                    // Click-Event für Toggle
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Alle anderen offenen Menüs schließen
+                        const allSubmenus = document.querySelectorAll('.submenu');
+                        const allIcons = document.querySelectorAll('.toggle-icon');
+                        
+                        allSubmenus.forEach((menu, index) => {
+                            if (menu !== submenu) {
+                                menu.style.display = 'none';
+                                allIcons[index].style.transform = 'rotate(0deg)';
+                            }
+                        });
+                        
+                        // Aktuelles Menü umschalten
+                        const isOpen = submenu.style.display === 'block';
+                        submenu.style.display = isOpen ? 'none' : 'block';
+                        
+                        // Icon drehen
+                        const icon = link.querySelector('.toggle-icon');
+                        if (icon) {
+                            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+
+            // Mobile Slidebar Funktionalität
+            const burgerBtn = document.getElementById('burgerBtn');
+            const mobileSlidebar = document.getElementById('mobileSlidebar');
+            const slidebarOverlay = document.getElementById('slidebarOverlay');
+
+            // Burger-Button Click Event (Toggle)
+            burgerBtn.addEventListener('click', function() {
+                if (mobileSlidebar.classList.contains('open')) {
+                    closeMobileSlidebar();
+                } else {
+                    openMobileSlidebar();
+                }
+            });
+
+            // Overlay Click Event
+            slidebarOverlay.addEventListener('click', function() {
+                closeMobileSlidebar();
+            });
+
+            // ESC-Taste zum Schließen
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileSlidebar.classList.contains('open')) {
+                    closeMobileSlidebar();
+                }
+            });
+
+            function openMobileSlidebar() {
+                mobileSlidebar.classList.add('open');
+                slidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Scroll verhindern
+            }
+
+            function closeMobileSlidebar() {
+                mobileSlidebar.classList.remove('open');
+                slidebarOverlay.classList.remove('active');
+                document.body.style.overflow = ''; // Scroll wieder erlauben
+            }
+
+
+        });
+    </script>
+</body>
+</html>

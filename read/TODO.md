@@ -202,6 +202,95 @@ Quiz-Website für Fachinformatiker Prüfungsvorbereitung mit phasenbasierter Str
 
 ---
 
+## 🤖 **NEU - Phase 5: KI-gestützte Freitextfragen**
+
+### 🤖 Infrastruktur Setup
+
+- [ ] `phase5.html` erstellen
+- [ ] `js/quiz5.js` mit OpenRouter API Integration
+- [ ] `data/phase5-questions.js` mit 10 Prüfungsfragen
+- [ ] `css/phase5.css` für Freitext-Styling
+
+### 🤖 API Integration
+
+- [ ] OpenRouter API Setup (DeepSeek AI)
+- [ ] API Key Management
+- [ ] Request/Response Handling
+- [ ] Error Handling & Fallbacks
+- [ ] Rate Limiting
+
+### 🤖 Fragen-Content (10 Fragen)
+
+#### 🤖 OSI-Modell (2-3 Fragen)
+
+- [ ] OSI-Schichten erklären
+- [ ] Schichten-spezifische Protokolle
+- [ ] Datenfluss durch OSI-Modell
+
+#### 🤖 TCP/IP (2-3 Fragen)
+
+- [ ] TCP/IP vs OSI-Modell
+- [ ] TCP vs UDP Unterschiede
+- [ ] IP-Adressierung und Subnetting
+
+#### 🤖 IoT (2-3 Fragen)
+
+- [ ] IoT-Architektur erklären
+- [ ] IoT-Sicherheitsaspekte
+- [ ] IoT-Protokolle (MQTT, CoAP)
+
+#### 🤖 Projektmanagement (2-3 Fragen)
+
+- [ ] Agile vs Waterfall Methoden
+- [ ] Projektplanung und -steuerung
+- [ ] Risikomanagement
+
+### 🤖 KI-Bewertungslogik
+
+- [ ] Prompt-Engineering für DeepSeek AI
+- [ ] Score-Berechnung (0-100%)
+- [ ] Korrektheit vs Vollständigkeit
+- [ ] Schlüsselwort-Erkennung
+- [ ] Semantische Ähnlichkeit
+
+### 🤖 UI/UX Features
+
+- [ ] Freitext-Textarea mit Zeichenzähler
+- [ ] Progress-Bar für Fragen
+- [ ] Submit-Button mit Loading-State
+- [ ] KI-Feedback Display
+- [ ] Score-Animation
+- [ ] Detaillierte Erklärungen
+
+### 🤖 Anti-Cheat & Validation
+
+- [ ] Mindest-Zeichen-Anzahl
+- [ ] Maximale Antwortlänge
+- [ ] Spam-Protection
+- [ ] Zeitbasierte Bewertung
+- [ ] Konsistenzprüfung
+
+### 🤖 Ergebnis-Management
+
+- [ ] Score-Speicherung in LocalStorage
+- [ ] Detaillierte Statistik-Seite
+- [ ] Export der KI-Feedbacks
+- [ ] Vergleich mit anderen Phasen
+
+### 🤖 Performance & Optimierung
+
+- [ ] API-Response Caching
+- [ ] Batch-Processing für mehrere Antworten
+- [ ] Offline-Fallback (lokale Keyword-Bewertung)
+- [ ] Loading-Animations
+- [ ] Error Recovery
+
+---
+
+## 🚀 **Erweiterte Features**
+
+---
+
 ## 🧪 **TESTING & QUALITÄTSSICHERUNG**
 
 ### 🧪 Funktionalität
