@@ -106,7 +106,7 @@
         
         .content-area h1 {
             color: #2c3e50;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             border-bottom: 3px solid #3498db;
             padding-bottom: 0.5rem;
@@ -114,7 +114,7 @@
         
         .content-area h2 {
             color: #2c3e50;
-            font-size: 1.8rem;
+            font-size: 1rem;
             margin: 2rem 0 1rem 0;
             color: #3498db;
         }
@@ -123,6 +123,52 @@
             color: #7f8c8d;
             line-height: 1.7;
             margin-bottom: 1rem;
+        }
+
+        /* Content Section Toggle Styles */
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 1rem 1.5rem;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            border: 2px solid rgba(52, 152, 219, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        .section-toggle:hover {
+            background: rgba(52, 152, 219, 0.08);
+            border-color: rgba(52, 152, 219, 0.2);
+        }
+
+        .section-toggle .toggle-icon {
+            transition: transform 0.3s ease;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .section-content {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 0 0 10px 10px;
+            border: 2px solid rgba(52, 152, 219, 0.1);
+            border-top: none;
+            display: block;
+        }
+
+        .content-section.collapsed .section-content {
+            display: none;
+        }
+
+        .content-section.collapsed .section-toggle .toggle-icon {
+            transform: rotate(-90deg);
         }
         
         @media (max-width: 768px) {
@@ -162,17 +208,17 @@
             }
             
             .content-area h1 {
-                font-size: 2rem;
+                font-size: 1rem;
                 margin-bottom: 0.8rem;
             }
             
             .content-area h2 {
-                font-size: 1.5rem;
+                font-size: 1rem;
                 margin: 1.5rem 0 0.8rem 0;
             }
             
             .content-area h3 {
-                font-size: 1.2rem;
+                font-size: 1rem;
                 margin: 1rem 0 0.5rem 0;
             }
             
@@ -211,15 +257,15 @@
             }
             
             .content-area h1 {
-                font-size: 1.8rem;
+                font-size: 1.2rem;
             }
             
             .content-area h2 {
-                font-size: 1.3rem;
+                font-size: 1rem;
             }
             
             .content-area h3 {
-                font-size: 1.1rem;
+                font-size: 0.9rem;
             }
             
             .content-area p {
@@ -378,7 +424,7 @@
 
     <main class="main-content">
         <div class="wissen-container">
-            <!-- Linke Sidebar mit Dropdown-Menü -->
+            <!-- Linke Sidebar mit Dropdown-Menü für Inhaltsverzeichnis-->
             <aside class="sidebar">
             <h3><i class="fas fa-list"></i> Inhaltsverzeichnis</h3>
             <ul>
@@ -504,7 +550,7 @@
                     </ul>
                 </li> -->
             </ul>
-        </aside>
+            </aside>
 
         <!-- Rechter Content-Bereich -->
         <main class="content-area">
@@ -520,259 +566,284 @@
                 <p>Mit den GA2 Teilen der alten Prüfungsverordnung und den bisherigen Abschlussprüfung Teil 1 kann sich auf die Prüfung vorbereitet werden.</p>
             </section>
 
-            <section id="zahlensysteme">
-                <h2>Zahlensysteme</h2>
-                <p>Umrechnungen zwischen verschiedenen Zahlensystemen</p>
-                
-                <section id="umrechnungen">
-                    <h3>Umrechnungen</h3>
-                    <p>Hier werden die verschiedenen Zahlensysteme und deren Umrechnungen behandelt.</p>
-                </section>
+            <section id="zahlensysteme" class="content-section">
+                <h2 class="section-toggle">
+                    Zahlensysteme
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h2>
+                <div class="section-content">
+                    <p>Umrechnungen zwischen verschiedenen Zahlensystemen</p>
+                    
+                    <section id="umrechnungen">
+                        <h3>Umrechnungen</h3>
+                        <p>Hier werden die verschiedenen Zahlensysteme und deren Umrechnungen behandelt.</p>
+                    </section>
+                </div>
             </section>
 
-            <section id="wirtschaft">
-                <h2>Wirtschaft</h2>
-                <p>Wirtschaftliche Grundlagen und Berechnungen</p>
-                
-                <section id="vertragsarten">
-                    <h3>Vertragsarten</h3>
-                    <p>Verschiedene Arten von Verträgen und deren Merkmale.</p>
-                </section>
+            <section id="wirtschaft" class="content-section">
+                <h2 class="section-toggle">
+                    Wirtschaft
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h2>
+                <div class="section-content">
+                    <p>Wirtschaftliche Grundlagen und Berechnungen</p>
+                    
+                    <section id="vertragsarten">
+                        <h3>Vertragsarten</h3>
+                        <p>Verschiedene Arten von Verträgen und deren Merkmale.</p>
+                    </section>
 
-                <section id="marktformen">
-                    <h3>Marktformen</h3>
-                    <p>Unterschiedliche Marktstrukturen und deren Eigenschaften.</p>
-                </section>
+                    <section id="marktformen">
+                        <h3>Marktformen</h3>
+                        <p>Unterschiedliche Marktstrukturen und deren Eigenschaften.</p>
+                    </section>
 
-                <section id="wirtschaftssektoren">
-                    <h3>Wirtschaftssektoren</h3>
-                    <p>Primärer, sekundärer und tertiärer Wirtschaftssektor.</p>
-                </section>
+                    <section id="wirtschaftssektoren">
+                        <h3>Wirtschaftssektoren</h3>
+                        <p>Primärer, sekundärer und tertiärer Wirtschaftssektor.</p>
+                    </section>
 
-                <section id="amortisation">
-                    <h3>Amortisationsrechnung</h3>
-                    <p>Berechnung der Amortisationszeit von Investitionen.</p>
-                </section>
+                    <section id="amortisation">
+                        <h3>Amortisationsrechnung</h3>
+                        <p>Berechnung der Amortisationszeit von Investitionen.</p>
+                    </section>
 
-                <section id="angebotsvergleich">
-                    <h3>Angebotsvergleich</h3>
-                    <p>Methoden zum Vergleich verschiedener Angebote.</p>
-                </section>
+                    <section id="angebotsvergleich">
+                        <h3>Angebotsvergleich</h3>
+                        <p>Methoden zum Vergleich verschiedener Angebote.</p>
+                    </section>
 
-                <section id="bezugskalkulation">
-                    <h3>Bezugskalkulation</h3>
-                    <p>Kalkulation der Bezugskosten und -preise.</p>
-                </section>
+                    <section id="bezugskalkulation">
+                        <h3>Bezugskalkulation</h3>
+                        <p>Kalkulation der Bezugskosten und -preise.</p>
+                    </section>
 
-                <section id="ratendarlehen">
-                    <h3>Das Ratendarlehen</h3>
-                    <p>Besonderheiten und Berechnungen bei Ratendarlehen.</p>
-                </section>
+                    <section id="ratendarlehen">
+                        <h3>Das Ratendarlehen</h3>
+                        <p>Besonderheiten und Berechnungen bei Ratendarlehen.</p>
+                    </section>
 
-                <section id="harvard">
-                    <h3>Harvard-Konzept</h3>
-                    <p>Verhandlungsstrategie nach dem Harvard-Prinzip.</p>
-                </section>
+                    <section id="harvard">
+                        <h3>Harvard-Konzept</h3>
+                        <p>Verhandlungsstrategie nach dem Harvard-Prinzip.</p>
+                    </section>
 
-                <section id="kosten-nutzen">
-                    <h3>Kosten und Nutzen</h3>
-                    <p>Analyse von Kosten-Nutzen-Verhältnissen.</p>
-                </section>
+                    <section id="kosten-nutzen">
+                        <h3>Kosten und Nutzen</h3>
+                        <p>Analyse von Kosten-Nutzen-Verhältnissen.</p>
+                    </section>
 
-                <section id="make-or-buy">
-                    <h3>Make or Buy</h3>
-                    <p>Entscheidung zwischen Eigenfertigung und Fremdbezug.</p>
-                </section>
+                    <section id="make-or-buy">
+                        <h3>Make or Buy</h3>
+                        <p>Entscheidung zwischen Eigenfertigung und Fremdbezug.</p>
+                    </section>
 
-                <section id="nutzwertanalyse">
-                    <h3>Nutzwertanalyse</h3>
-                    <p>Bewertungsmethode für komplexe Entscheidungen.</p>
-                </section>
+                    <section id="nutzwertanalyse">
+                        <h3>Nutzwertanalyse</h3>
+                        <p>Bewertungsmethode für komplexe Entscheidungen.</p>
+                    </section>
 
-                <section id="rentabilitaet">
-                    <h3>Rentabilitätsrechnung</h3>
-                    <p>Berechnung der Rentabilität von Investitionen.</p>
-                </section>
+                    <section id="rentabilitaet">
+                        <h3>Rentabilitätsrechnung</h3>
+                        <p>Berechnung der Rentabilität von Investitionen.</p>
+                    </section>
 
-                <section id="roi">
-                    <h3>ROI ~ Return on Investment</h3>
-                    <p>Kapitalrentabilität und deren Berechnung.</p>
-                </section>
+                    <section id="roi">
+                        <h3>ROI ~ Return on Investment</h3>
+                        <p>Kapitalrentabilität und deren Berechnung.</p>
+                    </section>
 
-                <section id="win-win">
-                    <h3>Win-Win-Strategie</h3>
-                    <p>Strategien für beidseitig vorteilhafte Lösungen.</p>
-                </section>
+                    <section id="win-win">
+                        <h3>Win-Win-Strategie</h3>
+                        <p>Strategien für beidseitig vorteilhafte Lösungen.</p>
+                    </section>
+                </div>
             </section>
 
-            <section id="systemintegration">
-                <h2>Systemintegration</h2>
-                <p>Technische Grundlagen der Systemintegration</p>
-                
-                <section id="storage">
-                    <h3>Storage Systeme</h3>
-                    <p>Verschiedene Speichersysteme und deren Eigenschaften.</p>
-                </section>
+            <section id="systemintegration" class="content-section">
+                <h2 class="section-toggle">
+                    Systemintegration
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h2>
+                <div class="section-content">
+                    <p>Technische Grundlagen der Systemintegration</p>
+                    
+                    <section id="storage">
+                        <h3>Storage Systeme</h3>
+                        <p>Verschiedene Speichersysteme und deren Eigenschaften.</p>
+                    </section>
 
-                <section id="netzwerktopologien">
-                    <h3>Netzwerktopologien</h3>
-                    <p>Verschiedene Netzwerkstrukturen und deren Vor- und Nachteile.</p>
-                </section>
+                    <section id="netzwerktopologien">
+                        <h3>Netzwerktopologien</h3>
+                        <p>Verschiedene Netzwerkstrukturen und deren Vor- und Nachteile.</p>
+                    </section>
 
-                <section id="usv">
-                    <h3>USV - Unterbrechungsfreie Stromversorgung</h3>
-                    <p>Unterbrechungsfreie Stromversorgungssysteme und deren Funktionsweise.</p>
-                </section>
+                    <section id="usv">
+                        <h3>USV - Unterbrechungsfreie Stromversorgung</h3>
+                        <p>Unterbrechungsfreie Stromversorgungssysteme und deren Funktionsweise.</p>
+                    </section>
 
-                <section id="backuparten">
-                    <h3>Backuparten</h3>
-                    <p>Verschiedene Arten von Backups und deren Strategien.</p>
-                </section>
+                    <section id="backuparten">
+                        <h3>Backuparten</h3>
+                        <p>Verschiedene Arten von Backups und deren Strategien.</p>
+                    </section>
 
-                <section id="osi">
-                    <h3>Das OSI Modell</h3>
-                    <p>Das 7-Schichten-Modell der Netzwerkkommunikation.</p>
-                </section>
+                    <section id="osi">
+                        <h3>Das OSI Modell</h3>
+                        <p>Das 7-Schichten-Modell der Netzwerkkommunikation.</p>
+                    </section>
 
-                <section id="datenbanksystem">
-                    <h3>Datenbanksystem</h3>
-                    <p>Grundlagen von Datenbanksystemen und deren Architektur.</p>
-                </section>
+                    <section id="datenbanksystem">
+                        <h3>Datenbanksystem</h3>
+                        <p>Grundlagen von Datenbanksystemen und deren Architektur.</p>
+                    </section>
 
-                <section id="dsl">
-                    <h3>DSL - Digital Subscriber Line</h3>
-                    <p>Digitale Teilnehmeranschlussleitung und deren Technologien.</p>
-                </section>
+                    <section id="dsl">
+                        <h3>DSL - Digital Subscriber Line</h3>
+                        <p>Digitale Teilnehmeranschlussleitung und deren Technologien.</p>
+                    </section>
 
-                <section id="thin-client">
-                    <h3>Thin Client Arten</h3>
-                    <p>Verschiedene Arten von Thin Clients und deren Einsatzgebiete.</p>
-                </section>
+                    <section id="thin-client">
+                        <h3>Thin Client Arten</h3>
+                        <p>Verschiedene Arten von Thin Clients und deren Einsatzgebiete.</p>
+                    </section>
 
-                <section id="vdi">
-                    <h3>VDI und DaaS</h3>
-                    <p>Virtual Desktop Infrastructure und Desktop as a Service.</p>
-                </section>
+                    <section id="vdi">
+                        <h3>VDI und DaaS</h3>
+                        <p>Virtual Desktop Infrastructure und Desktop as a Service.</p>
+                    </section>
 
-                <section id="vlan">
-                    <h3>VLAN - Virtual Local Area Network</h3>
-                    <p>Virtuelle lokale Netzwerke und deren Konfiguration.</p>
-                </section>
+                    <section id="vlan">
+                        <h3>VLAN - Virtual Local Area Network</h3>
+                        <p>Virtuelle lokale Netzwerke und deren Konfiguration.</p>
+                    </section>
+                </div>
             </section>
 
-            <section id="projektmanagement">
-                <h2>Projektmanagement</h2>
-                <p>Methoden und Werkzeuge des Projektmanagements</p>
-                
-                <section id="agil-klassisch">
-                    <h3>Agiles vs klassisches Projektmanagement</h3>
-                    <p>Unterschiede zwischen agilen und klassischen Projektmanagement-Methoden.</p>
-                </section>
+            <section id="projektmanagement" class="content-section">
+                <h2 class="section-toggle">
+                    Projektmanagement
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h2>
+                <div class="section-content">
+                    <p>Methoden und Werkzeuge des Projektmanagements</p>
+                    
+                    <section id="agil-klassisch">
+                        <h3>Agiles vs klassisches Projektmanagement</h3>
+                        <p>Unterschiede zwischen agilen und klassischen Projektmanagement-Methoden.</p>
+                    </section>
 
-                <section id="xp">
-                    <h3>Extreme Programming / XP</h3>
-                    <p>Agile Entwicklungsmethode mit Fokus auf Qualität und Flexibilität.</p>
-                </section>
+                    <section id="xp">
+                        <h3>Extreme Programming / XP</h3>
+                        <p>Agile Entwicklungsmethode mit Fokus auf Qualität und Flexibilität.</p>
+                    </section>
 
-                <section id="gantt">
-                    <h3>Gantt Diagramm</h3>
-                    <p>Projektplanung mit Gantt-Diagrammen zur Visualisierung von Zeitplänen.</p>
-                </section>
+                    <section id="gantt">
+                        <h3>Gantt Diagramm</h3>
+                        <p>Projektplanung mit Gantt-Diagrammen zur Visualisierung von Zeitplänen.</p>
+                    </section>
 
-                <section id="kanban">
-                    <h3>Kanban</h3>
-                    <p>Agile Methode zur Visualisierung und Optimierung von Arbeitsabläufen.</p>
-                </section>
+                    <section id="kanban">
+                        <h3>Kanban</h3>
+                        <p>Agile Methode zur Visualisierung und Optimierung von Arbeitsabläufen.</p>
+                    </section>
 
-                <section id="lasten-pflichtenheft">
-                    <h3>Lastenheft und Pflichtenheft</h3>
-                    <p>Dokumentation von Anforderungen und technischen Spezifikationen.</p>
-                </section>
+                    <section id="lasten-pflichtenheft">
+                        <h3>Lastenheft und Pflichtenheft</h3>
+                        <p>Dokumentation von Anforderungen und technischen Spezifikationen.</p>
+                    </section>
 
-                <section id="magisches-dreieck">
-                    <h3>Magisches Dreieck</h3>
-                    <p>Projektmanagement-Dreieck aus Zeit, Kosten und Qualität.</p>
-                </section>
+                    <section id="magisches-dreieck">
+                        <h3>Magisches Dreieck</h3>
+                        <p>Projektmanagement-Dreieck aus Zeit, Kosten und Qualität.</p>
+                    </section>
 
-                <section id="meilensteine">
-                    <h3>Meilensteine im Projektmanagement</h3>
-                    <p>Wichtige Zwischenziele und deren Bedeutung für den Projekterfolg.</p>
-                </section>
+                    <section id="meilensteine">
+                        <h3>Meilensteine im Projektmanagement</h3>
+                        <p>Wichtige Zwischenziele und deren Bedeutung für den Projekterfolg.</p>
+                    </section>
 
-                <section id="netzplan">
-                    <h3>Netzplan</h3>
-                    <p>Netzplantechnik zur Projektplanung und -steuerung.</p>
-                </section>
+                    <section id="netzplan">
+                        <h3>Netzplan</h3>
+                        <p>Netzplantechnik zur Projektplanung und -steuerung.</p>
+                    </section>
 
-                <section id="teamentwicklung">
-                    <h3>Phasen der Teamentwicklung</h3>
-                    <p>Entwicklungsphasen von Teams nach Tuckman (Forming, Storming, Norming, Performing).</p>
-                </section>
+                    <section id="teamentwicklung">
+                        <h3>Phasen der Teamentwicklung</h3>
+                        <p>Entwicklungsphasen von Teams nach Tuckman (Forming, Storming, Norming, Performing).</p>
+                    </section>
 
-                <section id="projektplan">
-                    <h3>Projektplan</h3>
-                    <p>Strukturierte Planung von Projekten mit allen relevanten Aspekten.</p>
-                </section>
+                    <section id="projektplan">
+                        <h3>Projektplan</h3>
+                        <p>Strukturierte Planung von Projekten mit allen relevanten Aspekten.</p>
+                    </section>
 
-                <section id="risikoanalyse">
-                    <h3>Risikoanalyse</h3>
-                    <p>Identifikation, Bewertung und Behandlung von Projektrisiken.</p>
-                </section>
+                    <section id="risikoanalyse">
+                        <h3>Risikoanalyse</h3>
+                        <p>Identifikation, Bewertung und Behandlung von Projektrisiken.</p>
+                    </section>
 
-                <section id="scrum">
-                    <h3>Scrum</h3>
-                    <p>Agile Projektmanagement-Methode mit iterativen Entwicklungszyklen.</p>
-                </section>
+                    <section id="scrum">
+                        <h3>Scrum</h3>
+                        <p>Agile Projektmanagement-Methode mit iterativen Entwicklungszyklen.</p>
+                    </section>
 
-                <section id="smart">
-                    <h3>SMART-Ziele</h3>
-                    <p>Spezifische, messbare, erreichbare, relevante und terminierte Ziele.</p>
-                </section>
+                    <section id="smart">
+                        <h3>SMART-Ziele</h3>
+                        <p>Spezifische, messbare, erreichbare, relevante und terminierte Ziele.</p>
+                    </section>
 
-                <section id="spiralmodell">
-                    <h3>Spiralmodell</h3>
-                    <p>Entwicklungsmodell mit iterativen Zyklen und Risikobewertung.</p>
-                </section>
+                    <section id="spiralmodell">
+                        <h3>Spiralmodell</h3>
+                        <p>Entwicklungsmodell mit iterativen Zyklen und Risikobewertung.</p>
+                    </section>
 
-                <section id="ticket-systeme">
-                    <h3>Ticket Systeme</h3>
-                    <p>Systeme zur Verwaltung von Aufgaben und Problemen in Projekten.</p>
-                </section>
+                    <section id="ticket-systeme">
+                        <h3>Ticket Systeme</h3>
+                        <p>Systeme zur Verwaltung von Aufgaben und Problemen in Projekten.</p>
+                    </section>
 
-                <section id="v-modell">
-                    <h3>V-Modell</h3>
-                    <p>Entwicklungsmodell mit parallelen Entwicklungs- und Testphasen.</p>
-                </section>
+                    <section id="v-modell">
+                        <h3>V-Modell</h3>
+                        <p>Entwicklungsmodell mit parallelen Entwicklungs- und Testphasen.</p>
+                    </section>
 
-                <section id="was-ist-projekt">
-                    <h3>Was ist ein Projekt?</h3>
-                    <p>Definition und Charakteristika von Projekten.</p>
-                </section>
+                    <section id="was-ist-projekt">
+                        <h3>Was ist ein Projekt?</h3>
+                        <p>Definition und Charakteristika von Projekten.</p>
+                    </section>
 
-                <section id="wasserfallmodell">
-                    <h3>Wasserfallmodell</h3>
-                    <p>Klassisches lineares Entwicklungsmodell mit sequenziellen Phasen.</p>
-                </section>
+                    <section id="wasserfallmodell">
+                        <h3>Wasserfallmodell</h3>
+                        <p>Klassisches lineares Entwicklungsmodell mit sequenziellen Phasen.</p>
+                    </section>
+                </div>
             </section>
 
-            <section id="datenschutz">
-                <h2>Datenschutz</h2>
-                <p>Grundlagen des Datenschutzes und der IT-Sicherheit</p>
-                
-                <section id="cyberbedrohungen">
-                    <h3>Cyberbedrohungen</h3>
-                    <p>Verschiedene Arten von Cyberbedrohungen und deren Abwehr.</p>
-                </section>
+            <section id="datenschutz" class="content-section">
+                <h2 class="section-toggle">
+                    Datenschutz
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h2>
+                <div class="section-content">
+                    <p>Grundlagen des Datenschutzes und der IT-Sicherheit</p>
+                    
+                    <section id="cyberbedrohungen">
+                        <h3>Cyberbedrohungen</h3>
+                        <p>Verschiedene Arten von Cyberbedrohungen und deren Abwehr.</p>
+                    </section>
 
-                <section id="betroffenenrechte">
-                    <h3>Betroffenenrechte</h3>
-                    <p>Rechte von Personen, deren Daten verarbeitet werden.</p>
-                </section>
+                    <section id="betroffenenrechte">
+                        <h3>Betroffenenrechte</h3>
+                        <p>Rechte von Personen, deren Daten verarbeitet werden.</p>
+                    </section>
 
-                <section id="bsi-grundschutz">
-                    <h3>BSI-Grundschutz: Wichtige Begriffe</h3>
-                    <p>Grundschutz-Katalog des BSI und dessen wichtigste Begriffe.</p>
-                </section>
+                    <section id="bsi-grundschutz">
+                        <h3>BSI-Grundschutz: Wichtige Begriffe</h3>
+                        <p>Grundschutz-Katalog des BSI und dessen wichtigste Begriffe.</p>
+                    </section>
+                </div>
             </section>
         </div>
     </main>
@@ -934,41 +1005,61 @@
             }
         });
 
-        // Dropdown-Menü Funktionalität
-        document.addEventListener('DOMContentLoaded', function() {
-            // Alle Links mit Toggle-Icons finden
-            const toggleLinks = document.querySelectorAll('a:has(.toggle-icon)');
-            
-            toggleLinks.forEach(link => {
-                const submenu = link.nextElementSibling;
-                if (submenu && submenu.classList.contains('submenu')) {
-                    // Click-Event für Toggle
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Alle anderen offenen Menüs schließen
-                        const allSubmenus = document.querySelectorAll('.submenu');
-                        const allIcons = document.querySelectorAll('.toggle-icon');
-                        
-                        allSubmenus.forEach((menu, index) => {
-                            if (menu !== submenu) {
-                                menu.style.display = 'none';
-                                allIcons[index].style.transform = 'rotate(0deg)';
+                    // Dropdown-Menü Funktionalität
+            document.addEventListener('DOMContentLoaded', function() {
+                // Alle Links mit Toggle-Icons finden
+                const toggleLinks = document.querySelectorAll('a:has(.toggle-icon)');
+                
+                toggleLinks.forEach(link => {
+                    const submenu = link.nextElementSibling;
+                    if (submenu && submenu.classList.contains('submenu')) {
+                        // Click-Event für Toggle
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            
+                            // Alle anderen offenen Menüs schließen
+                            const allSubmenus = document.querySelectorAll('.submenu');
+                            const allIcons = document.querySelectorAll('.toggle-icon');
+                            
+                            allSubmenus.forEach((menu, index) => {
+                                if (menu !== submenu) {
+                                    menu.style.display = 'none';
+                                    allIcons[index].style.transform = 'rotate(0deg)';
+                                }
+                            });
+                            
+                            // Aktuelles Menü umschalten
+                            const isOpen = submenu.style.display === 'block';
+                            submenu.style.display = isOpen ? 'none' : 'block';
+                            
+                            // Icon drehen
+                            const icon = link.querySelector('.toggle-icon');
+                            if (icon) {
+                                icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
                             }
                         });
+                    }
+                });
+
+                // Content Section Toggle Funktionalität
+                const sectionToggles = document.querySelectorAll('.section-toggle');
+                
+                sectionToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function() {
+                        const contentSection = this.closest('.content-section');
+                        const icon = this.querySelector('.toggle-icon');
                         
-                        // Aktuelles Menü umschalten
-                        const isOpen = submenu.style.display === 'block';
-                        submenu.style.display = isOpen ? 'none' : 'block';
+                        // Toggle collapsed class
+                        contentSection.classList.toggle('collapsed');
                         
                         // Icon drehen
-                        const icon = link.querySelector('.toggle-icon');
-                        if (icon) {
-                            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        if (contentSection.classList.contains('collapsed')) {
+                            icon.style.transform = 'rotate(-90deg)';
+                        } else {
+                            icon.style.transform = 'rotate(0deg)';
                         }
                     });
-                }
-            });
+                });
 
             // Mobile Slidebar Funktionalität
             const burgerBtn = document.getElementById('burgerBtn');
