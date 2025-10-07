@@ -13,7 +13,7 @@ class Quiz5 {
 
     // OpenRouter API Configuration
     this.apiKey =
-      "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"; // OpenRouter API Key
+      "APIKEY"; // OpenRouter API Key
     this.apiUrl = "https://openrouter.ai/api/v1/chat/completions";
     this.model = "deepseek/deepseek-r1-0528:free";
 
